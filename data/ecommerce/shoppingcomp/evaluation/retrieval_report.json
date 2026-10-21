@@ -1,0 +1,878 @@
+{
+  "settings": {
+    "top_k": 20,
+    "top_products": 5,
+    "modes": [
+      "no-rerank",
+      "rerank"
+    ],
+    "queries": 20
+  },
+  "candidate_summary": {
+    "hit_rate": 0.9,
+    "mean_precision": 0.19588357312622018,
+    "mean_recall": 0.8516666666666668
+  },
+  "mode_summaries": {
+    "no-rerank": {
+      "queries": 20,
+      "hit_rate": 0.9,
+      "mean_precision": 0.35,
+      "mean_recall": 0.7725,
+      "mean_f1": 0.4326190476190477,
+      "mrr": 0.6958333333333333,
+      "queries_with_rerank_alerts": 0
+    },
+    "rerank": {
+      "queries": 20,
+      "hit_rate": 0.9,
+      "mean_precision": 0.4,
+      "mean_recall": 0.8316666666666667,
+      "mean_f1": 0.48623015873015873,
+      "mrr": 0.9,
+      "queries_with_rerank_alerts": 0
+    }
+  },
+  "results": [
+    {
+      "question_id": "3e93c270-0412-4f37-ac59-9f207a3f145f",
+      "candidate": {
+        "candidate_product_count": 14,
+        "precision": 0.07142857142857142,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Logitech BRIO C1000s 4K 网络摄像头",
+            "Reolink Argus 4",
+            "索尼α6700",
+            "Samsung RL38C776ASR 60cm 冷蔵庫",
+            "Luna Nectar Atmosphere Multi-Peptide Hair Density & Scalp Serum"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 0.3333333333333333,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "索尼α6700",
+            "Sony Alpha a6700 (ILCE-6700) Mirrorless Camera",
+            "Sony Alpha 7C II (A7C II)",
+            "Apple iPhone 16 Pro Max",
+            "Apple iPhone 16 Pro"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 14
+    },
+    {
+      "question_id": "8d7267f8-0c4c-41bf-97da-897b30d78d55",
+      "candidate": {
+        "candidate_product_count": 15,
+        "precision": 0.06666666666666667,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "老板盐系17套大容量G1灵动门嵌入式洗碗机",
+            "西门子极境超薄洗衣机WJ45UMB0AW",
+            "A.O.SMITH CEWH-60ED3 / E60MTF 同系机型",
+            "Raycop RS Pro UV+ Handheld Allergen Vacuum",
+            "Biodance Bio Collagen Real Deep Mask"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 0.25,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "Raycop RS Pro UV+ Handheld Allergen Vacuum",
+            "好太太 AI晾衣机 晾晒大师GW-1396 W Y Max",
+            "Electrolux ELFW7637AT 4.5 cu. ft. Front Load Perfect Steam Washer",
+            "A.O.SMITH CEWH-60ED3 / E60MTF 同系机型",
+            "美的消毒柜110YQ2"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 15
+    },
+    {
+      "question_id": "e61a3936-4b55-4ba8-a9f5-a2efd8e20c41",
+      "candidate": {
+        "candidate_product_count": 13,
+        "precision": 0.07692307692307693,
+        "recall": 0.3333333333333333,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "ASUS ROG Azoth",
+            "Apple iPad Pro M5 (13-inch)",
+            "Keychron K6 Pro QMK/VIA Wireless Mechanical Keyboard",
+            "Keychron K7 Pro",
+            "Apple iPad Pro 13-inch (M4, 2024)"
+          ],
+          "precision": 0.2,
+          "recall": 0.3333333333333333,
+          "f1": 0.25,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "ASUS ROG Azoth",
+            "Keychron K6 Pro QMK/VIA Wireless Mechanical Keyboard",
+            "Keychron K7 Pro",
+            "Enilinx Flexbar",
+            "RØDECaster Pro II"
+          ],
+          "precision": 0.2,
+          "recall": 0.3333333333333333,
+          "f1": 0.25,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 13
+    },
+    {
+      "question_id": "42fa6e81-40f3-4050-b71b-9112fd23a49e",
+      "candidate": {
+        "candidate_product_count": 13,
+        "precision": 0.07692307692307693,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "NU Aqua Efficiency Series Tankless 800 GPD UV Reverse Osmosis System (2:1 Pure-to-Waste)",
+            "钛立维TD-P001恒温电热水壶",
+            "凯度 (Casdon) Z10 嵌入式制冰净饮机",
+            "Euro Cuisine RFCX12 无绳/可充电式切碎机",
+            "米家恒温电水壶2 Pro"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "NU Aqua Efficiency Series Tankless 800 GPD UV Reverse Osmosis System (2:1 Pure-to-Waste)",
+            "凯度 (Casdon) Z10 嵌入式制冰净饮机",
+            "海尔 EC6003HD-BK5KAU1 60升净滤小蓝瓶横式电热水器",
+            "美的轻净系列电水壶 MK-YS20P502",
+            "老板母婴级消毒柜XG832"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 13
+    },
+    {
+      "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
+      "candidate": {
+        "candidate_product_count": 13,
+        "precision": 0.3076923076923077,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Soundcore Space One",
+            "Bose QuietComfort 45 headphones",
+            "Bose QuietComfort Ultra Headphones",
+            "Sennheiser Momentum True Wireless 3",
+            "Turtle Beach Stealth 600 Headset (Gen 3)"
+          ],
+          "precision": 0.6,
+          "recall": 0.75,
+          "f1": 0.6666666666666665,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "Soundcore Space One",
+            "Bose QuietComfort 45 headphones",
+            "Bose QuietComfort Ultra Headphones",
+            "索尼 WH-1000X M5",
+            "Turtle Beach Stealth 600 Headset (Gen 3)"
+          ],
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.888888888888889,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 13
+    },
+    {
+      "question_id": "5d977402-7d6d-48a0-8084-0eb6b995276a",
+      "candidate": {
+        "candidate_product_count": 9,
+        "precision": 0.1111111111111111,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Sennheiser Momentum True Wireless 3",
+            "Bose QuietComfort Ultra Earbuds",
+            "Sony WF-1000XM5",
+            "南卡OE MIX(开放式)",
+            "Bose QuietComfort Earbuds II"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 0.25,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "南卡OE MIX(开放式)",
+            "HUAWEI FreeArc Open-Ear Earbuds",
+            "soundcore AeroFit 2",
+            "Sennheiser Momentum True Wireless 3",
+            "Jabra Elite 8 Active Gen 2"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 9
+    },
+    {
+      "question_id": "c1e2da34-f9b6-4709-b904-0cbc63a836a0",
+      "candidate": {
+        "candidate_product_count": 13,
+        "precision": 0.38461538461538464,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Hero Cosmetics Force Shield Superlight Sunscreen SPF 30",
+            "CeraVe Hydrating Mineral Sunscreen SPF 30 Face Sheer Tint",
+            "Colorescience Sunforgettable Total Protection Face Shield Classic SPF 50",
+            "EltaMD UV Skin Recovery Broad Spectrum SPF 50",
+            "First Aid Beauty Weightless Liquid Mineral Sunscreen with Zinc Oxide SPF 30"
+          ],
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8000000000000002,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "EltaMD UV Skin Recovery Broad Spectrum SPF 50",
+            "CeraVe Hydrating Mineral Sunscreen SPF 30 Face Sheer Tint",
+            "First Aid Beauty Weightless Liquid Mineral Sunscreen with Zinc Oxide SPF 30",
+            "Tower 28 SunnyDays Tinted SPF 30 Sunscreen Foundation",
+            "Hero Cosmetics Force Shield Superlight Sunscreen SPF 30"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 13
+    },
+    {
+      "question_id": "d94016ce-4029-4093-bad4-708f9491cdb0",
+      "candidate": {
+        "candidate_product_count": 8,
+        "precision": 0.375,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "松下(Panasonic)浴霸FV-RB20Y1",
+            "Panasonic FV-TB3OUSAW",
+            "美的(Midea)电热水器 60L F6033系列",
+            "Midea 美的 AK7 Pro 顶侧一体抽油烟机",
+            "Soundcore Space One"
+          ],
+          "precision": 0.4,
+          "recall": 0.6666666666666666,
+          "f1": 0.5,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "松下(Panasonic)浴霸FV-RB20Y1",
+            "Panasonic FV-30BK2C",
+            "Panasonic FV-TB3OUSAW",
+            "美的 F8032-JA7(HE)",
+            "美的(Midea)电热水器 60L F6033系列"
+          ],
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.7499999999999999,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 8
+    },
+    {
+      "question_id": "b264aabe-4ee1-4422-99bb-59e4987691a4",
+      "candidate": {
+        "candidate_product_count": 11,
+        "precision": 0.8181818181818182,
+        "recall": 0.9,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "CeraVe Resurfacing Retinol Serum",
+            "Paula’s Choice RESIST Intensive Wrinkle-Repair 0.1% Retinol Serum",
+            "Innisfree Retinol Cica Repair Ampoule",
+            "科颜氏视黄醇抗皱紧实精华乳(KIEHL'S SINCE 1851 RETINOL SKIN-RENEWING DAILY MICRO-DOSE SERUM)",
+            "RETINOL CORREXION LINE SMOOTHING NIGHT SERUM CAPSULES"
+          ],
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "Innisfree Retinol Cica Repair Ampoule",
+            "Paula’s Choice RESIST Intensive Wrinkle-Repair 0.1% Retinol Serum",
+            "科颜氏视黄醇抗皱紧实精华乳(KIEHL'S SINCE 1851 RETINOL SKIN-RENEWING DAILY MICRO-DOSE SERUM)",
+            "The INKEY List Retinol Serum",
+            "Versed Skin Press Restart Serum"
+          ],
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 11
+    },
+    {
+      "question_id": "e1e81125-c1d6-475b-a4de-24e1ac01c3c6",
+      "candidate": {
+        "candidate_product_count": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "hit": false
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "RAINPOINT Smart WiFi Solar Automatic Plant Watering System for House Potted Plants Gen 2",
+            "ASUS ROG Strix B650E-I Gaming WiFi",
+            "ASRock B650E PG-ITX WiFi",
+            "ASUS USB-AX56 Dual Band AX1800 USB WiFi Adapter",
+            "华硕 ROG STRIX X670E-I GAMING WIFI"
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "hit": false,
+          "reciprocal_rank": 0.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "ASUS USB-AX56 Dual Band AX1800 USB WiFi Adapter",
+            "RAINPOINT Smart WiFi Solar Automatic Plant Watering System for House Potted Plants Gen 2",
+            "华硕 ROG STRIX X670E-I GAMING WIFI",
+            "ASRock B650I Lightning WiFi 6E",
+            "ASRock B650E PG-ITX WiFi"
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "hit": false,
+          "reciprocal_rank": 0.0,
+          "alerts": []
+        }
+      },
+      "group_count": 6
+    },
+    {
+      "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
+      "candidate": {
+        "candidate_product_count": 9,
+        "precision": 0.1111111111111111,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Garmin epix Pro (Gen 2) Sapphire",
+            "Physiogel Red Soothing Cica Balance Toner",
+            "HUAWEI FreeArc Open-Ear Earbuds",
+            "Sennheiser Momentum True Wireless 3",
+            "Marathon Search & Rescue Jumbo Day/Date (JDD) Automatic"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "Garmin epix Pro (Gen 2) Sapphire",
+            "Shark SpeedStyle HD352",
+            "HUAWEI FreeArc Open-Ear Earbuds",
+            "Marathon Search & Rescue Jumbo Day/Date (JDD) Automatic",
+            "华为智能门锁 2 Ultra"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 9
+    },
+    {
+      "question_id": "c848384c-1919-4715-a676-1b90243fb633",
+      "candidate": {
+        "candidate_product_count": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "hit": false
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "RETINOL CORREXION LINE SMOOTHING NIGHT SERUM CAPSULES",
+            "Olay Regenerist Retinol Face Serum, Retinol 24 Night Face Serum",
+            "雅诗兰黛第七代小棕瓶修护精华",
+            "Versed Skin Press Restart Serum",
+            "Lapcos Deep Collagen Glass Skin Overnight Mask"
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "hit": false,
+          "reciprocal_rank": 0.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "Versed Skin Press Restart Serum",
+            "雅诗兰黛第七代小棕瓶修护精华",
+            "Olay Regenerist Retinol Face Serum, Retinol 24 Night Face Serum",
+            "Medik8 水晶视黄醛 1 精华液",
+            "RETINOL CORREXION LINE SMOOTHING NIGHT SERUM CAPSULES"
+          ],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "hit": false,
+          "reciprocal_rank": 0.0,
+          "alerts": []
+        }
+      },
+      "group_count": 12
+    },
+    {
+      "question_id": "932f5e19-8177-4998-be4a-073571f3e5a5",
+      "candidate": {
+        "candidate_product_count": 17,
+        "precision": 0.23529411764705882,
+        "recall": 0.8,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "米家恒温电水壶2 Pro",
+            "美的轻净系列电水壶 MK-YS20P502",
+            "Midea F6032-JA5",
+            "海尔 EC6003HD-BK5KAU1 60升净滤小蓝瓶横式电热水器",
+            "海尔ES60HD-MVP11PLUSKA03U1"
+          ],
+          "precision": 0.4,
+          "recall": 0.4,
+          "f1": 0.4000000000000001,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "康佳养生壶 KYSH-1509-M",
+            "ICOOKPOT Glass Electric Kettle with Tea Infuser YSH20(07)B-BLACK-A",
+            "美的轻净系列电水壶 MK-YS20P502",
+            "米家恒温电水壶2 Pro",
+            "A.O.SMITH CEWH-60ED3 / E60MTF 同系机型"
+          ],
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8000000000000002,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 17
+    },
+    {
+      "question_id": "78754209-40f5-4e25-9402-5ba3e66fb023",
+      "candidate": {
+        "candidate_product_count": 6,
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "德施曼智能门锁 大圣Q5 FPro(新性能版)",
+            "Physiogel Red Soothing Cica Balance Toner",
+            "华为智能门锁 2 Ultra",
+            "萤石启明CS‐Y5000FVS",
+            "德施曼Q5F Pro(新性能版)"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 0.25,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "萤石启明CS‐Y5000FVS",
+            "德施曼Q5F Pro(新性能版)",
+            "Lockin 鹿客 S6 Max 指脉锁 3D人脸可视猫眼智能门锁",
+            "华为智能门锁 2 Ultra",
+            "德施曼智能门锁 大圣Q5 FPro(新性能版)"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 6
+    },
+    {
+      "question_id": "fd2b165f-6cef-4bf6-adfd-568457eb594f",
+      "candidate": {
+        "candidate_product_count": 9,
+        "precision": 0.2222222222222222,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "COSRX BHA Blackhead Power Liquid",
+            "CeraVe Renewing SA Cleanser",
+            "Braun Series 9 Pro+ 6‐in‐1",
+            "CeraVe Acne Control Cleanser 痤疮控制洁面产品",
+            "No Makeup Easy Rinse Makeup-Removing Cleanser"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 0.5,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "CeraVe Renewing SA Cleanser",
+            "CeraVe Acne Control Cleanser 痤疮控制洁面产品",
+            "COSRX BHA Blackhead Power Liquid",
+            "Eadem Cashmere Peel Gentle Exfoliating AHA + PHA Toner",
+            "Hero Cosmetics Pore Release Exfoliating BHA Toner"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 9
+    },
+    {
+      "question_id": "fa15c30b-d7cb-4d53-85bb-8b36bc7b039e",
+      "candidate": {
+        "candidate_product_count": 12,
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Hero Cosmetics Pore Release Exfoliating BHA Toner",
+            "Physiogel Red Soothing Cica Balance Toner",
+            "Mineral Air Four-in-One Airbrush Foundation - 10 ml",
+            "COSRX BHA Blackhead Power Liquid",
+            "华为智能门锁 2 Ultra"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "COSRX BHA Blackhead Power Liquid",
+            "Hero Cosmetics Pore Release Exfoliating BHA Toner",
+            "CeraVe Acne Control Cleanser 痤疮控制洁面产品",
+            "Polyhydroxy Acid (PHA) Gentle Exfoliating Toner",
+            "Physiogel Red Soothing Cica Balance Toner"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 12
+    },
+    {
+      "question_id": "6fb5a285-fe43-418d-a3d4-5a871da67963",
+      "candidate": {
+        "candidate_product_count": 14,
+        "precision": 0.07142857142857142,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "Logitech BRIO C1000s 4K 网络摄像头",
+            "Apple iPhone 16 Pro",
+            "荣耀Magic6 Pro",
+            "Haier CXW-358-C3710UD Ultra-thin Flush Built-in Range Hood",
+            "方太超薄全面屏烟机A-Max P1"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "Logitech BRIO C1000s 4K 网络摄像头",
+            "Sony Alpha 7C II (A7C II)",
+            "Apple iPhone 16 Pro",
+            "Sony Alpha a6700 (ILCE-6700) Mirrorless Camera",
+            "Sony Alpha a6600"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 14
+    },
+    {
+      "question_id": "acec324e-bda6-48e1-948f-72481ab407b6",
+      "candidate": {
+        "candidate_product_count": 11,
+        "precision": 0.2727272727272727,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "海尔 ZQD110F-EB031 110升嵌入式光波巴氏消毒柜",
+            "Physiogel Red Soothing Cica Balance Toner",
+            "美的消毒柜110YQ2",
+            "老板母婴级消毒柜XG832",
+            "老板盐系17套大容量G1灵动门嵌入式洗碗机"
+          ],
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.7499999999999999,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "海尔 ZQD110F-EB031 110升嵌入式光波巴氏消毒柜",
+            "老板母婴级消毒柜XG832",
+            "美的消毒柜110YQ2",
+            "老板盐系17套大容量G1灵动门嵌入式洗碗机",
+            "森歌消毒柜集成灶 T6"
+          ],
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.7499999999999999,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 11
+    },
+    {
+      "question_id": "b3c113d3-981a-457e-844c-d95e169c30c2",
+      "candidate": {
+        "candidate_product_count": 13,
+        "precision": 0.15384615384615385,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "ASRock B650E PG-ITX WiFi",
+            "Gigabyte X870I AORUS PRO ICE (Mini-ITX, Wi‐Fi 7)",
+            "XION Freeride Evo D3O Women’s Impact Shorts",
+            "徕芬 Swift 4",
+            "Demon Flexforce X D3O/XRD Women’s Impact Shorts"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 0.3333333333333333,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "XION Freeride Evo D3O Women’s Impact Shorts",
+            "Demon Flexforce X D3O/XRD Women’s Impact Shorts",
+            "Shark SpeedStyle HD352",
+            "Turtle Beach Stealth 600 Headset (Gen 3)",
+            "徕芬 Swift 4"
+          ],
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714285714285715,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 13
+    },
+    {
+      "question_id": "729474fb-8c96-4678-b6d3-1b297a21d89a",
+      "candidate": {
+        "candidate_product_count": 16,
+        "precision": 0.0625,
+        "recall": 1.0,
+        "hit": true
+      },
+      "modes": {
+        "no-rerank": {
+          "selected_products": [
+            "当贝X5 Pro",
+            "雷柏VT7MAX双8K版",
+            "Garmin epix Pro (Gen 2) Sapphire",
+            "Samsung RL38C776ASR 60cm 冷蔵庫",
+            "米家冰箱Pro 双系统法式平嵌 508L"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        },
+        "rerank": {
+          "selected_products": [
+            "当贝X5 Pro",
+            "Garmin epix Pro (Gen 2) Sapphire",
+            "Little Swan Bense Series TDH12K700 (小天鹅本色系列 TDH12K700)",
+            "Midea F6032-JA5",
+            "雷柏VT7MAX双8K版"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.33333333333333337,
+          "hit": true,
+          "reciprocal_rank": 1.0,
+          "alerts": []
+        }
+      },
+      "group_count": 16
+    }
+  ]
+}

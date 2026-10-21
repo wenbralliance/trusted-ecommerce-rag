@@ -1,0 +1,17 @@
+services:
+  rag-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rag-agentic-api:latest
+    container_name: rag-container
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MILVUS_URI: "${DOCKER_MILVUS_URI:-http://host.docker.internal:19530}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    stop_grace_period: 20s

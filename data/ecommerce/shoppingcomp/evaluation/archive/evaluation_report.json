@@ -1,0 +1,439 @@
+{
+  "summary": {
+    "queries": 20,
+    "top_k": 8,
+    "hit_rate_at_k": 0.95,
+    "mean_document_recall_at_k": 0.8258333333333333,
+    "mean_chunk_recall_at_k": 0.35914285714285715,
+    "mrr_at_k": 0.70625,
+    "product_hit_rate_at_k": 0.95,
+    "macro_product_precision_at_k": 0.34273809523809523,
+    "macro_product_recall_at_k": 0.8258333333333333,
+    "macro_product_f1_at_k": 0.4416801335918983,
+    "micro_product_precision_at_k": 0.33613445378151263,
+    "micro_product_recall_at_k": 0.7692307692307693,
+    "micro_product_f1_at_k": 0.46783625730994155
+  },
+  "results": [
+    {
+      "question_id": "3e93c270-0412-4f37-ac59-9f207a3f145f",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.14285714285714285,
+      "product_recall": 1.0,
+      "product_f1": 0.25,
+      "document_recall": 1.0,
+      "chunk_recall": 0.25,
+      "reciprocal_rank": 0.25,
+      "returned_chunk_ids": [
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:e0d0c372-88a9-4336-9869-f4d8954c9d83",
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:2d55541c-7b2c-49af-a2dc-7788a3b5a12b",
+        "shoppingcomp:e1e81125-c1d6-475b-a4de-24e1ac01c3c6:0:c5599522-4c13-4113-92cd-2684215957b1",
+        "shoppingcomp:3e93c270-0412-4f37-ac59-9f207a3f145f:0:a16cf948-62b8-4464-8d6a-63b73969b118",
+        "shoppingcomp:643fb0a5-2a69-42ff-a99e-125931d35147:0:f54d84ba-6bbf-4dca-9f08-783db7170f6e",
+        "shoppingcomp:5aab64d4-a2a1-4062-a849-5d783b070cc6:1:700553a0-80b3-4871-ac5d-f4fd733087f2",
+        "shoppingcomp:876202af-e4ef-47f6-bb8d-0a9050e9e437:1:1136a7de-0454-49cd-aade-6176e57ede17",
+        "shoppingcomp:470524e9-e9a2-480c-9f79-39f45a8e7956:0:19cb18e1-5979-4fe5-8c8e-600b010d8081"
+      ]
+    },
+    {
+      "question_id": "8d7267f8-0c4c-41bf-97da-897b30d78d55",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.16666666666666666,
+      "product_recall": 1.0,
+      "product_f1": 0.2857142857142857,
+      "document_recall": 1.0,
+      "chunk_recall": 0.6,
+      "reciprocal_rank": 0.25,
+      "returned_chunk_ids": [
+        "shoppingcomp:a9a50676-1c20-4363-9a2a-baf43e080b75:0:91426cac-4a39-4259-ac08-96778aafe6f4",
+        "shoppingcomp:6f271d1c-6c78-4c59-a183-3a66f0127fdf:0:b07ac643-2239-4688-bb31-750013987f3a",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:2:6b39e2fa-0e8f-46c4-8ff7-5db9e6cd6175",
+        "shoppingcomp:8d7267f8-0c4c-41bf-97da-897b30d78d55:0:c5e63315-e4a8-408e-80f5-510de288d3c4",
+        "shoppingcomp:c4aae98e-bcdb-462e-a886-94b2637b1a27:0:1a39d37b-1e75-4fb7-bf0c-5991c9b197eb",
+        "shoppingcomp:8d7267f8-0c4c-41bf-97da-897b30d78d55:0:a5132f4d-9107-43af-8601-321f9b6ec1ba",
+        "shoppingcomp:8d7267f8-0c4c-41bf-97da-897b30d78d55:0:e145dceb-766f-45e9-91ad-d1947b8f3ea5",
+        "shoppingcomp:9fac681f-74cf-4598-9ee2-b666214053af:2:1c7909cf-d281-4c5c-9137-2c5ae1a084d3"
+      ]
+    },
+    {
+      "question_id": "e61a3936-4b55-4ba8-a9f5-a2efd8e20c41",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.2857142857142857,
+      "product_recall": 0.6666666666666666,
+      "product_f1": 0.4,
+      "document_recall": 0.6666666666666666,
+      "chunk_recall": 0.13333333333333333,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:e61a3936-4b55-4ba8-a9f5-a2efd8e20c41:0:235317e5-14f7-4a74-91e4-62ff67563a43",
+        "shoppingcomp:f935f211-fa67-4db7-a381-e13852de0f3e:1:23d58ef2-a2bf-4717-bbce-13641076ab73",
+        "shoppingcomp:f935f211-fa67-4db7-a381-e13852de0f3e:3:23d58ef2-a2bf-4717-bbce-13641076ab73",
+        "shoppingcomp:c55f6fb0-d8fc-4af7-9c38-64ebc44e896a:0:1538694d-986b-468a-94fd-29a715412f47",
+        "shoppingcomp:876202af-e4ef-47f6-bb8d-0a9050e9e437:1:1136a7de-0454-49cd-aade-6176e57ede17",
+        "shoppingcomp:c55f6fb0-d8fc-4af7-9c38-64ebc44e896a:1:9732798c-c663-48f7-b972-7d0f661099d8",
+        "shoppingcomp:e61a3936-4b55-4ba8-a9f5-a2efd8e20c41:2:27fbec17-2963-407a-9023-0f955d9cc04b",
+        "shoppingcomp:c55f6fb0-d8fc-4af7-9c38-64ebc44e896a:1:4020ff88-924e-436a-a57a-17bcb11ff739"
+      ]
+    },
+    {
+      "question_id": "42fa6e81-40f3-4050-b71b-9112fd23a49e",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.2,
+      "product_recall": 1.0,
+      "product_f1": 0.3333333333333333,
+      "document_recall": 1.0,
+      "chunk_recall": 0.5,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:42fa6e81-40f3-4050-b71b-9112fd23a49e:0:058f7cd7-b5f0-4296-bae2-62ba026201f0",
+        "shoppingcomp:236e10ad-9baf-4c99-93cf-e41af787eab0:0:c6d65294-9116-4259-b422-5c5c0e02581d",
+        "shoppingcomp:236e10ad-9baf-4c99-93cf-e41af787eab0:0:3459794c-0f00-4e6f-9d4a-4d85f27de07e",
+        "shoppingcomp:932f5e19-8177-4998-be4a-073571f3e5a5:0:6c8e40ff-fb9b-48e2-8e35-31c8277c6e98",
+        "shoppingcomp:42fa6e81-40f3-4050-b71b-9112fd23a49e:0:1aaa59a0-f8c0-4e83-91fe-34aaef27ca0e",
+        "shoppingcomp:236e10ad-9baf-4c99-93cf-e41af787eab0:0:ed079d01-f667-4289-8fe7-deddb8872f67",
+        "shoppingcomp:147b3549-3790-4aa7-807d-9dd9aff71e20:2:7cf2b1c6-b86e-46da-8e93-fd8d1400ac69",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:4:9150bad2-cfed-43d5-922d-aba081c7f300"
+      ]
+    },
+    {
+      "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.6,
+      "product_recall": 0.75,
+      "product_f1": 0.6666666666666666,
+      "document_recall": 0.75,
+      "chunk_recall": 0.4166666666666667,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:2e6385e6-a27f-4e1b-95aa-7bfb8afa3726:1:1df40cc9-ef23-4aa0-a5bc-61d4e6e21608",
+        "shoppingcomp:2e6385e6-a27f-4e1b-95aa-7bfb8afa3726:1:95858ef4-3a51-4108-816a-79cff81ab45a",
+        "shoppingcomp:2e6385e6-a27f-4e1b-95aa-7bfb8afa3726:3:1df40cc9-ef23-4aa0-a5bc-61d4e6e21608",
+        "shoppingcomp:2e6385e6-a27f-4e1b-95aa-7bfb8afa3726:0:95858ef4-3a51-4108-816a-79cff81ab45a",
+        "shoppingcomp:bb84bc0d-2149-4a8c-8534-6c42fba2ed80:2:35332b4e-fb1e-4874-a035-19b3a7f6e758",
+        "shoppingcomp:2e6385e6-a27f-4e1b-95aa-7bfb8afa3726:3:95858ef4-3a51-4108-816a-79cff81ab45a",
+        "shoppingcomp:8dee9e10-fe37-4342-bb45-9a303b380ca0:0:4fae2d41-fd8a-486f-85fb-fac0bdabc093",
+        "shoppingcomp:8dee9e10-fe37-4342-bb45-9a303b380ca0:0:5bb4e962-24d6-4cc2-9953-af630b930550"
+      ]
+    },
+    {
+      "question_id": "5d977402-7d6d-48a0-8084-0eb6b995276a",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.14285714285714285,
+      "product_recall": 1.0,
+      "product_f1": 0.25,
+      "document_recall": 1.0,
+      "chunk_recall": 0.3333333333333333,
+      "reciprocal_rank": 0.25,
+      "returned_chunk_ids": [
+        "shoppingcomp:bb84bc0d-2149-4a8c-8534-6c42fba2ed80:2:6a97d8f8-eda6-400f-837d-46bd39389241",
+        "shoppingcomp:bb84bc0d-2149-4a8c-8534-6c42fba2ed80:0:6a97d8f8-eda6-400f-837d-46bd39389241",
+        "shoppingcomp:bb84bc0d-2149-4a8c-8534-6c42fba2ed80:3:6a97d8f8-eda6-400f-837d-46bd39389241",
+        "shoppingcomp:5d977402-7d6d-48a0-8084-0eb6b995276a:0:58f1f1ee-8ba2-41fd-b0d2-b95dbd2b0573",
+        "shoppingcomp:5d977402-7d6d-48a0-8084-0eb6b995276a:0:323f2d45-2aa4-4fb9-be1b-a169df51fe22",
+        "shoppingcomp:bb84bc0d-2149-4a8c-8534-6c42fba2ed80:1:6a97d8f8-eda6-400f-837d-46bd39389241",
+        "shoppingcomp:6f5e21d7-cc10-44b5-9f92-204b5ba32cd5:0:60231c80-bb68-409a-b1c1-0414729ada60",
+        "shoppingcomp:6f5e21d7-cc10-44b5-9f92-204b5ba32cd5:1:58b7cc4f-a915-4d9d-bfe5-d6f2f3f5f7bc"
+      ]
+    },
+    {
+      "question_id": "c1e2da34-f9b6-4709-b904-0cbc63a836a0",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.7142857142857143,
+      "product_recall": 1.0,
+      "product_f1": 0.8333333333333334,
+      "document_recall": 1.0,
+      "chunk_recall": 0.24,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:c1e2da34-f9b6-4709-b904-0cbc63a836a0:3:450dddec-3a81-40d9-ae53-e04c90579343",
+        "shoppingcomp:c1e2da34-f9b6-4709-b904-0cbc63a836a0:4:450dddec-3a81-40d9-ae53-e04c90579343",
+        "shoppingcomp:53978f6e-bd65-496b-8414-6b8255f597d3:0:510ff2bd-2416-45cf-ab34-71339ca45184",
+        "shoppingcomp:c1e2da34-f9b6-4709-b904-0cbc63a836a0:0:450dddec-3a81-40d9-ae53-e04c90579343",
+        "shoppingcomp:c1e2da34-f9b6-4709-b904-0cbc63a836a0:2:450dddec-3a81-40d9-ae53-e04c90579343",
+        "shoppingcomp:c1e2da34-f9b6-4709-b904-0cbc63a836a0:1:450dddec-3a81-40d9-ae53-e04c90579343",
+        "shoppingcomp:33be1d6b-66c4-49af-a6b0-f4bdd65ed877:0:74884d87-7ee6-4d01-84cb-f30b1aa5f443",
+        "shoppingcomp:c1e2da34-f9b6-4709-b904-0cbc63a836a0:0:d46b2e96-3a9e-42b8-a682-90d99bad6ec4"
+      ]
+    },
+    {
+      "question_id": "d94016ce-4029-4093-bad4-708f9491cdb0",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.4,
+      "product_recall": 0.6666666666666666,
+      "product_f1": 0.5,
+      "document_recall": 0.6666666666666666,
+      "chunk_recall": 0.25,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:d94016ce-4029-4093-bad4-708f9491cdb0:1:b33bac20-0c3c-4219-a9b5-95105e8803c7",
+        "shoppingcomp:d94016ce-4029-4093-bad4-708f9491cdb0:0:b33bac20-0c3c-4219-a9b5-95105e8803c7",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:3:0a3eaaf2-c5c4-4bc2-88ca-bbd890e55c0c",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:3:d7d86c10-e634-47b6-a8b9-81938b09758c",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:3:c0e27762-aed6-4d9a-86f8-d7237dfc36dd",
+        "shoppingcomp:2205facb-3f1a-439f-840d-9767bf154718:0:ebe5e9d7-6c7b-4b36-bae2-4c997b9b7a62",
+        "shoppingcomp:d94016ce-4029-4093-bad4-708f9491cdb0:1:05235786-290c-457d-bbe0-312c43ff5722",
+        "shoppingcomp:6b813b94-8631-4ab7-aa09-b4af67afdc65:1:2d7f03f5-d60d-47c8-84fc-bfa964a5248d"
+      ]
+    },
+    {
+      "question_id": "b264aabe-4ee1-4422-99bb-59e4987691a4",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 1.0,
+      "product_recall": 0.7,
+      "product_f1": 0.8235294117647058,
+      "document_recall": 0.7,
+      "chunk_recall": 0.4,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:8:1569b694-2329-4f80-9e7b-013b6caa74f2",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:1:1569b694-2329-4f80-9e7b-013b6caa74f2",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:7:1569b694-2329-4f80-9e7b-013b6caa74f2",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:5:41467175-997b-47e1-8fff-b74b3e9a34bb",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:4:41467175-997b-47e1-8fff-b74b3e9a34bb",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:0:41467175-997b-47e1-8fff-b74b3e9a34bb",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:6:1569b694-2329-4f80-9e7b-013b6caa74f2",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:5:1569b694-2329-4f80-9e7b-013b6caa74f2"
+      ]
+    },
+    {
+      "question_id": "e1e81125-c1d6-475b-a4de-24e1ac01c3c6",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.14285714285714285,
+      "product_recall": 0.3333333333333333,
+      "product_f1": 0.2,
+      "document_recall": 0.3333333333333333,
+      "chunk_recall": 0.05555555555555555,
+      "reciprocal_rank": 0.125,
+      "returned_chunk_ids": [
+        "shoppingcomp:470524e9-e9a2-480c-9f79-39f45a8e7956:4:a1a2291d-3b3f-431f-9f4f-3540cc7a452b",
+        "shoppingcomp:e9ad0282-f847-4552-8cc2-69c5437a586e:0:00c41da3-8dd0-4ba6-8c8e-e16a3cb1f492",
+        "shoppingcomp:470524e9-e9a2-480c-9f79-39f45a8e7956:2:a1a2291d-3b3f-431f-9f4f-3540cc7a452b",
+        "shoppingcomp:470524e9-e9a2-480c-9f79-39f45a8e7956:3:a1a2291d-3b3f-431f-9f4f-3540cc7a452b",
+        "shoppingcomp:705e5f81-ca7f-4c20-9c98-9941bba28455:1:b828278a-de69-4f07-97da-14d4726b917c",
+        "shoppingcomp:470524e9-e9a2-480c-9f79-39f45a8e7956:3:d21d32c3-6952-42b0-9049-500823faecc3",
+        "shoppingcomp:470524e9-e9a2-480c-9f79-39f45a8e7956:0:a1a2291d-3b3f-431f-9f4f-3540cc7a452b",
+        "shoppingcomp:e1e81125-c1d6-475b-a4de-24e1ac01c3c6:2:49412f58-b493-42ef-b573-1ebf4d9a9cfb"
+      ]
+    },
+    {
+      "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.2,
+      "product_recall": 1.0,
+      "product_f1": 0.3333333333333333,
+      "document_recall": 1.0,
+      "chunk_recall": 0.5714285714285714,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:697a9c75-f676-4323-8de2-fd3d7b754694:0:0beb02a9-addc-4261-93d8-5795c8555a40",
+        "shoppingcomp:cb8488fd-2563-4d17-a225-0f54a44e5919:0:df722b4b-1487-42d7-94f3-ddbfcb13a78e",
+        "shoppingcomp:697a9c75-f676-4323-8de2-fd3d7b754694:0:887a854a-4d8c-4b7c-80c4-22f29c307d30",
+        "shoppingcomp:697a9c75-f676-4323-8de2-fd3d7b754694:0:a3479f6f-16a4-4be9-b7e0-98626a5ee740",
+        "shoppingcomp:697a9c75-f676-4323-8de2-fd3d7b754694:0:d012f307-ff73-4942-a11d-b883c3bb0b9d",
+        "shoppingcomp:6f5e21d7-cc10-44b5-9f92-204b5ba32cd5:1:f35bd211-da9f-4170-8d99-5420e49360d8",
+        "shoppingcomp:bb84bc0d-2149-4a8c-8534-6c42fba2ed80:2:6a97d8f8-eda6-400f-837d-46bd39389241",
+        "shoppingcomp:4d8d2fff-c25d-4de1-b07b-afe28503cfb5:1:7c62b63b-6d80-447c-8f85-823b59f8ff8a"
+      ]
+    },
+    {
+      "question_id": "c848384c-1919-4715-a676-1b90243fb633",
+      "hit_at_k": false,
+      "product_hit_at_k": false,
+      "product_precision": 0.0,
+      "product_recall": 0.0,
+      "product_f1": 0.0,
+      "document_recall": 0.0,
+      "chunk_recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:4:41467175-997b-47e1-8fff-b74b3e9a34bb",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:3:41467175-997b-47e1-8fff-b74b3e9a34bb",
+        "shoppingcomp:c4aae98e-bcdb-462e-a886-94b2637b1a27:1:f805e4c4-fa3b-49e5-be9f-e04780a3c6e6",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:6:1569b694-2329-4f80-9e7b-013b6caa74f2",
+        "shoppingcomp:df34ddff-db2e-43ad-b17f-41eda6294dd4:0:a2c3af6f-ff04-48c2-9855-2b5ecb5b3b48",
+        "shoppingcomp:df34ddff-db2e-43ad-b17f-41eda6294dd4:0:62cf3ffd-7aff-47cf-880e-919f95d0db7f",
+        "shoppingcomp:b264aabe-4ee1-4422-99bb-59e4987691a4:3:1569b694-2329-4f80-9e7b-013b6caa74f2",
+        "shoppingcomp:cb8488fd-2563-4d17-a225-0f54a44e5919:0:76228ba2-013d-4c8d-b291-48eaee27dc5d"
+      ]
+    },
+    {
+      "question_id": "932f5e19-8177-4998-be4a-073571f3e5a5",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.25,
+      "product_recall": 0.4,
+      "product_f1": 0.3076923076923077,
+      "document_recall": 0.4,
+      "chunk_recall": 0.1,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:932f5e19-8177-4998-be4a-073571f3e5a5:3:cb486465-0787-41b0-969b-58ca8b2268b1",
+        "shoppingcomp:932f5e19-8177-4998-be4a-073571f3e5a5:2:cb486465-0787-41b0-969b-58ca8b2268b1",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:5:d7d86c10-e634-47b6-a8b9-81938b09758c",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:4:d7d86c10-e634-47b6-a8b9-81938b09758c",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:0:d7d86c10-e634-47b6-a8b9-81938b09758c",
+        "shoppingcomp:eea8dfcf-df49-4eb6-8333-b902a2856ed1:1:b70573ab-1c3f-4dc3-8fe6-177e3cf234f2",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:3:d7d86c10-e634-47b6-a8b9-81938b09758c",
+        "shoppingcomp:31a3b37e-6eda-4cbe-beb8-74f60e034c1d:2:7723d857-ebf6-43fc-ada7-696458835e6d"
+      ]
+    },
+    {
+      "question_id": "78754209-40f5-4e25-9402-5ba3e66fb023",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.3333333333333333,
+      "product_recall": 1.0,
+      "product_f1": 0.5,
+      "document_recall": 1.0,
+      "chunk_recall": 0.21428571428571427,
+      "reciprocal_rank": 0.25,
+      "returned_chunk_ids": [
+        "shoppingcomp:6efeb257-1f57-419a-9fde-64ccc3c15082:2:e8bcbb69-ea7e-45d4-8c5a-d2f80f89a53b",
+        "shoppingcomp:cb8488fd-2563-4d17-a225-0f54a44e5919:0:df722b4b-1487-42d7-94f3-ddbfcb13a78e",
+        "shoppingcomp:6efeb257-1f57-419a-9fde-64ccc3c15082:1:e8bcbb69-ea7e-45d4-8c5a-d2f80f89a53b",
+        "shoppingcomp:78754209-40f5-4e25-9402-5ba3e66fb023:0:94e4b8a3-deb2-4dac-8cfe-e862d924cdf7",
+        "shoppingcomp:78754209-40f5-4e25-9402-5ba3e66fb023:0:1bf55b2c-acba-4d0b-b69b-6e5aa648a0ce",
+        "shoppingcomp:78754209-40f5-4e25-9402-5ba3e66fb023:1:8aea0b58-68de-426d-97a7-937495ab4034",
+        "shoppingcomp:6efeb257-1f57-419a-9fde-64ccc3c15082:3:29c3ff6a-3ba7-4f77-acc7-a231c306ed56",
+        "shoppingcomp:6efeb257-1f57-419a-9fde-64ccc3c15082:1:01e64020-9efa-427b-a0c8-2f023b3052c4"
+      ]
+    },
+    {
+      "question_id": "fd2b165f-6cef-4bf6-adfd-568457eb594f",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.4,
+      "product_recall": 1.0,
+      "product_f1": 0.5714285714285714,
+      "document_recall": 1.0,
+      "chunk_recall": 0.35714285714285715,
+      "reciprocal_rank": 0.5,
+      "returned_chunk_ids": [
+        "shoppingcomp:fa15c30b-d7cb-4d53-85bb-8b36bc7b039e:1:176dfe6b-f594-4cba-8ca2-e51457b305fe",
+        "shoppingcomp:fd2b165f-6cef-4bf6-adfd-568457eb594f:1:e1798388-8efe-4343-bea4-bd7f6643805e",
+        "shoppingcomp:76141eba-7177-4313-a83d-da906ff4d02b:0:0cbb01c3-1756-4e07-9e64-2296a083fd2c",
+        "shoppingcomp:fd2b165f-6cef-4bf6-adfd-568457eb594f:0:e1798388-8efe-4343-bea4-bd7f6643805e",
+        "shoppingcomp:fd2b165f-6cef-4bf6-adfd-568457eb594f:0:d9fec112-43a4-4b99-afb3-2a6181e5679c",
+        "shoppingcomp:fd2b165f-6cef-4bf6-adfd-568457eb594f:0:5c1da606-79a5-4554-a753-05dc66be3e3d",
+        "shoppingcomp:fd2b165f-6cef-4bf6-adfd-568457eb594f:0:13b486aa-70e6-4005-86ff-dd14c574e428",
+        "shoppingcomp:5c2bbc07-9a55-421e-a816-119c2dd628d3:3:af866670-0448-489e-a66b-3d5449887092"
+      ]
+    },
+    {
+      "question_id": "fa15c30b-d7cb-4d53-85bb-8b36bc7b039e",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.4,
+      "product_recall": 1.0,
+      "product_f1": 0.5714285714285714,
+      "document_recall": 1.0,
+      "chunk_recall": 0.4166666666666667,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:fa15c30b-d7cb-4d53-85bb-8b36bc7b039e:0:b59b0fbd-edeb-4ca1-9127-0904b011feb5",
+        "shoppingcomp:fa15c30b-d7cb-4d53-85bb-8b36bc7b039e:0:176dfe6b-f594-4cba-8ca2-e51457b305fe",
+        "shoppingcomp:cb8488fd-2563-4d17-a225-0f54a44e5919:0:e59d652f-ce67-4588-9437-ebbc862eff53",
+        "shoppingcomp:fa15c30b-d7cb-4d53-85bb-8b36bc7b039e:1:3cf69d10-1d1e-4bf1-a6bd-1e7726716fb8",
+        "shoppingcomp:fa15c30b-d7cb-4d53-85bb-8b36bc7b039e:1:176dfe6b-f594-4cba-8ca2-e51457b305fe",
+        "shoppingcomp:6efeb257-1f57-419a-9fde-64ccc3c15082:1:44438477-ed3b-4e4d-a1c2-f47cecee3a5b",
+        "shoppingcomp:fa15c30b-d7cb-4d53-85bb-8b36bc7b039e:0:3cf69d10-1d1e-4bf1-a6bd-1e7726716fb8",
+        "shoppingcomp:b3c113d3-981a-457e-844c-d95e169c30c2:0:874d97cf-9a89-4e97-a814-67484783037b"
+      ]
+    },
+    {
+      "question_id": "6fb5a285-fe43-418d-a3d4-5a871da67963",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.25,
+      "product_recall": 1.0,
+      "product_f1": 0.4,
+      "document_recall": 1.0,
+      "chunk_recall": 0.8333333333333334,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:e0d0c372-88a9-4336-9869-f4d8954c9d83",
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:2d55541c-7b2c-49af-a2dc-7788a3b5a12b",
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:6230fbf9-ccf4-470f-a0b5-7e8d42daf94d",
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:43c72616-ba89-4e74-8f53-0edde1c3df7d",
+        "shoppingcomp:6fb5a285-fe43-418d-a3d4-5a871da67963:0:7885aa31-4b9a-4d10-a65b-21981b39ed63",
+        "shoppingcomp:876202af-e4ef-47f6-bb8d-0a9050e9e437:0:1136a7de-0454-49cd-aade-6176e57ede17",
+        "shoppingcomp:31a3b37e-6eda-4cbe-beb8-74f60e034c1d:0:a3c5151a-8f68-490a-b4a5-9b3bc19f7257",
+        "shoppingcomp:6b813b94-8631-4ab7-aa09-b4af67afdc65:4:516bbc36-eb55-4662-b37f-27ce4925b4f1"
+      ]
+    },
+    {
+      "question_id": "acec324e-bda6-48e1-948f-72481ab407b6",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.75,
+      "product_recall": 1.0,
+      "product_f1": 0.8571428571428571,
+      "document_recall": 1.0,
+      "chunk_recall": 0.7777777777777778,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:0:8b7513f5-162a-412d-bc50-77c5e5d0b732",
+        "shoppingcomp:cb8488fd-2563-4d17-a225-0f54a44e5919:0:df722b4b-1487-42d7-94f3-ddbfcb13a78e",
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:2:8b7513f5-162a-412d-bc50-77c5e5d0b732",
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:1:8b7513f5-162a-412d-bc50-77c5e5d0b732",
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:1:6ca6c06f-4b08-4490-85db-e83f38562535",
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:2:6ca6c06f-4b08-4490-85db-e83f38562535",
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:1:a88997c1-b831-4ab0-aaf1-532a1ac32353",
+        "shoppingcomp:acec324e-bda6-48e1-948f-72481ab407b6:0:6ca6c06f-4b08-4490-85db-e83f38562535"
+      ]
+    },
+    {
+      "question_id": "b3c113d3-981a-457e-844c-d95e169c30c2",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.3333333333333333,
+      "product_recall": 1.0,
+      "product_f1": 0.5,
+      "document_recall": 1.0,
+      "chunk_recall": 0.4,
+      "reciprocal_rank": 0.5,
+      "returned_chunk_ids": [
+        "shoppingcomp:5b5463e2-62da-4c99-85ec-8bdaa7b625fb:2:f8ae697a-c7b0-4dc2-b236-1663333c0503",
+        "shoppingcomp:b3c113d3-981a-457e-844c-d95e169c30c2:0:874d97cf-9a89-4e97-a814-67484783037b",
+        "shoppingcomp:5b5463e2-62da-4c99-85ec-8bdaa7b625fb:4:f8ae697a-c7b0-4dc2-b236-1663333c0503",
+        "shoppingcomp:b3c113d3-981a-457e-844c-d95e169c30c2:0:3cbbfb3c-5ff7-4119-b487-7184ce9f8c5c",
+        "shoppingcomp:36d1d356-c100-4514-a806-bd8836845e43:3:47fec3f3-63f9-4f0a-a516-403113faa248",
+        "shoppingcomp:b3c113d3-981a-457e-844c-d95e169c30c2:0:ab09f776-a278-44ba-bf5f-305b9b3b7630",
+        "shoppingcomp:8dee9e10-fe37-4342-bb45-9a303b380ca0:0:28f341b5-955b-429a-9ee8-d9f5c7ce15ea",
+        "shoppingcomp:b3c113d3-981a-457e-844c-d95e169c30c2:1:3cbbfb3c-5ff7-4119-b487-7184ce9f8c5c"
+      ]
+    },
+    {
+      "question_id": "729474fb-8c96-4678-b6d3-1b297a21d89a",
+      "hit_at_k": true,
+      "product_hit_at_k": true,
+      "product_precision": 0.14285714285714285,
+      "product_recall": 1.0,
+      "product_f1": 0.25,
+      "document_recall": 1.0,
+      "chunk_recall": 0.3333333333333333,
+      "reciprocal_rank": 1.0,
+      "returned_chunk_ids": [
+        "shoppingcomp:729474fb-8c96-4678-b6d3-1b297a21d89a:0:57603252-3718-4e58-b9b4-43c4ce1d7551",
+        "shoppingcomp:bc5740e8-fd02-43a6-970a-13f3eab04645:2:3a42cd42-683b-4a9d-9cc3-9f1ddadc4f5d",
+        "shoppingcomp:697a9c75-f676-4323-8de2-fd3d7b754694:0:774b960b-b022-4c40-ae0c-e342c5bd78c2",
+        "shoppingcomp:643fb0a5-2a69-42ff-a99e-125931d35147:0:f54d84ba-6bbf-4dca-9f08-783db7170f6e",
+        "shoppingcomp:4c03b29d-22ba-42c8-ad1b-ba650c7501dc:0:31b290c1-9f52-4618-914e-e6c58f3845ab",
+        "shoppingcomp:4c03b29d-22ba-42c8-ad1b-ba650c7501dc:0:a2dae060-23dd-4abe-b801-e5a5da27d001",
+        "shoppingcomp:03d3705a-7c53-4c7f-95d1-d4f5d4f5bef9:3:0a3eaaf2-c5c4-4bc2-88ca-bbd890e55c0c",
+        "shoppingcomp:8d7267f8-0c4c-41bf-97da-897b30d78d55:0:e145dceb-766f-45e9-91ad-d1947b8f3ea5"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "dataset": "ShoppingComp",
+  "language": "zh",
+  "source_url": "https://hf-mirror.com/datasets/huaixiao/ShoppingComp",
+  "paper": "https://www.arxiv.org/abs/2511.22978",
+  "license": "MIT",
+  "modifications": "Split product evidence into retrieval documents, normalized text, removed URLs from embedding/BM25 text, preserved canonical URLs and source-quality metadata, added stable RAG identifiers, expected product/document/chunk references, and separated safety tasks.",
+  "task_count": 97,
+  "safety_task_count": 48,
+  "document_count": 1190,
+  "unique_product_count": 236,
+  "sample_question_count": 20,
+  "source_types": {
+    "Synthesized User Questions": 55,
+    "Expert Questions": 42
+  },
+  "evidence_source_types": {
+    "official": 188,
+    "unknown": 626,
+    "retailer": 316,
+    "community": 8,
+    "review": 52
+  },
+  "duplicate_documents_skipped": 0,
+  "documents_with_sources": 1046,
+  "documents_missing_sources": 144,
+  "urls_extracted_from_reason_text": 2494
+}
