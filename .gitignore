@@ -2,6 +2,7 @@
 .env.*
 !.env.example
 .venv/
+.venv-ragas/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -11,3 +12,9 @@ __pycache__/
 htmlcov/
 .idea/
 milvus/volumes/
+
+# Local resume material and manual API debug script
+/文肇乐-AI Agent应用开发简历.docx
+/assets/resume-icons/
+/tests/test_api.py
+/data/ecommerce/shoppingcomp/ragas_eval/archive/

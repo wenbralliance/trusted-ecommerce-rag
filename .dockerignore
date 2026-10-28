@@ -1,4 +1,5 @@
 .venv/
+.venv-ragas/
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -13,3 +14,4 @@ milvus/
 tests/
 *.md
 data/ecommerce/shoppingcomp/evaluation/archive/
+data/ecommerce/shoppingcomp/ragas_eval/

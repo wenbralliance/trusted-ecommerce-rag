@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-10-26T10:15:20.431732+00:00",
+  "reference_version": "reference-v1",
+  "reference_generator_model": "deepseek-flash",
+  "reference_is_llm_generated": true,
+  "reference_review_status": "unreviewed",
+  "sample_count": 10,
+  "source_questions_sha256": "766598a8b22fa954fa32a3d7a28200900c67b10c48d2aebb2fd641856d609855",
+  "outputs": {
+    "samples": "samples.jsonl",
+    "ragas_dataset": "ragas_dataset.jsonl"
+  }
+}
