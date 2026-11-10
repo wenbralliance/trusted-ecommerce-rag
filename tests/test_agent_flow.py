@@ -1,10 +1,18 @@
+import os
+
 import pytest
 from langchain_core.messages import HumanMessage
 from rag.graph.builder import app
 
 
-# 标记这个测试为异步测试
+pytestmark = pytest.mark.integration
+
+
 @pytest.mark.asyncio
+@pytest.mark.skipif(
+    os.getenv("RUN_INTEGRATION_TESTS") != "1",
+    reason="Set RUN_INTEGRATION_TESTS=1 with Milvus and model services running.",
+)
 async def test_agent_end_to_end():
     print("\n=== 启动 Agentic RAG E2E 测试 ===")
     query = "我想买一台适合旅行拍摄、支持4K视频和动物眼部对焦的相机"

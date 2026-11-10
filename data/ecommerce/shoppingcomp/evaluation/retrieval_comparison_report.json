@@ -1,0 +1,174 @@
+{
+  "source_report": "C:\\Users\\文肇乐\\Desktop\\RAG\\data\\ecommerce\\shoppingcomp\\evaluation\\retrieval_report.json",
+  "settings": {
+    "top_k": 20,
+    "top_products": 5,
+    "modes": [
+      "no-rerank",
+      "rerank"
+    ],
+    "queries": 20
+  },
+  "candidate_summary": {
+    "hit_rate": 0.9,
+    "mean_precision": 0.196204085946733,
+    "mean_recall": 0.8516666666666668,
+    "search_latency_ms": {
+      "mean": 321.49832498980686,
+      "p50": 95.3953000716865,
+      "p95": 1237.8008998930454
+    }
+  },
+  "mode_summaries": {
+    "no-rerank": {
+      "queries": 20,
+      "hit_rate": 0.9,
+      "mean_precision": 0.35,
+      "mean_recall": 0.7725,
+      "mean_f1": 0.4326190476190477,
+      "mrr": 0.6916666666666667,
+      "ndcg_at_5": 0.662406233081101,
+      "mean_average_precision": 0.5449444444444445,
+      "queries_with_rerank_alerts": 0,
+      "ci95": {
+        "mean_precision": {
+          "lower": 0.25,
+          "upper": 0.45999999999999996
+        },
+        "mean_recall": {
+          "lower": 0.6133333333333334,
+          "upper": 0.9083333333333334
+        },
+        "mean_f1": {
+          "lower": 0.33797619047619054,
+          "upper": 0.5252380952380953
+        },
+        "mrr": {
+          "lower": 0.5166666666666667,
+          "upper": 0.8541666666666666
+        },
+        "ndcg_at_5": {
+          "lower": 0.5255518199796716,
+          "upper": 0.7907510311947689
+        }
+      },
+      "ranking_latency_ms": {
+        "mean": 0.010920013301074505,
+        "p50": 0.010499963536858559,
+        "p95": 0.013600103557109833
+      }
+    },
+    "rerank": {
+      "queries": 20,
+      "hit_rate": 0.9,
+      "mean_precision": 0.4,
+      "mean_recall": 0.8316666666666667,
+      "mean_f1": 0.48623015873015873,
+      "mrr": 0.9,
+      "ndcg_at_5": 0.8669036824255206,
+      "mean_average_precision": 0.8316666666666667,
+      "queries_with_rerank_alerts": 0,
+      "ci95": {
+        "mean_precision": {
+          "lower": 0.28,
+          "upper": 0.54
+        },
+        "mean_recall": {
+          "lower": 0.6716666666666666,
+          "upper": 0.9566666666666667
+        },
+        "mean_f1": {
+          "lower": 0.368452380952381,
+          "upper": 0.6034920634920635
+        },
+        "mrr": {
+          "lower": 0.75,
+          "upper": 1.0
+        },
+        "ndcg_at_5": {
+          "lower": 0.7169036824255207,
+          "upper": 0.9934397461243829
+        }
+      },
+      "ranking_latency_ms": {
+        "mean": 340.93949500238523,
+        "p50": 339.63019982911646,
+        "p95": 391.35489985346794
+      }
+    }
+  },
+  "paired_comparison": {
+    "baseline": "no-rerank",
+    "candidate": "rerank",
+    "queries": 20,
+    "metrics": {
+      "precision": {
+        "delta": 0.05,
+        "delta_percentage_points": 5.0,
+        "ci95": {
+          "lower": 0.009999999999999998,
+          "upper": 0.1
+        },
+        "wins": 4,
+        "ties": 16,
+        "losses": 0
+      },
+      "recall": {
+        "delta": 0.059166666666666666,
+        "delta_percentage_points": 5.916666666666667,
+        "ci95": {
+          "lower": 0.009999999999999998,
+          "upper": 0.11833333333333333
+        },
+        "wins": 4,
+        "ties": 16,
+        "losses": 0
+      },
+      "f1": {
+        "delta": 0.05361111111111111,
+        "delta_percentage_points": 5.361111111111111,
+        "ci95": {
+          "lower": 0.009999999999999992,
+          "upper": 0.10749999999999997
+        },
+        "wins": 4,
+        "ties": 16,
+        "losses": 0
+      },
+      "reciprocal_rank": {
+        "delta": 0.20833333333333334,
+        "delta_percentage_points": 20.833333333333336,
+        "ci95": {
+          "lower": 0.07083333333333333,
+          "upper": 0.35833333333333334
+        },
+        "wins": 6,
+        "ties": 14,
+        "losses": 0
+      },
+      "ndcg_at_5": {
+        "delta": 0.20449744934441969,
+        "delta_percentage_points": 20.44974493444197,
+        "ci95": {
+          "lower": 0.11210663884192795,
+          "upper": 0.30231665750270337
+        },
+        "wins": 12,
+        "ties": 8,
+        "losses": 0
+      },
+      "average_precision": {
+        "delta": 0.2867222222222222,
+        "delta_percentage_points": 28.67222222222222,
+        "ci95": {
+          "lower": 0.16394444444444445,
+          "upper": 0.4143055555555556
+        },
+        "wins": 12,
+        "ties": 8,
+        "losses": 0
+      }
+    }
+  },
+  "method": "Product-level binary relevance; nDCG@5 and AP@5 recomputed from saved ranked product titles. Paired percentile bootstrap uses 10000 resamples with seed 20261110."
+}

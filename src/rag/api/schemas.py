@@ -65,9 +65,36 @@ class CitationItem(BaseModel):
     )
 
 
+class GroundingMetrics(BaseModel):
+    claim_count: int = Field(
+        default=0,
+        ge=0,
+        description="回答中声明的原子事实数量",
+    )
+    cited_claim_count: int = Field(
+        default=0,
+        ge=0,
+        description="带有有效检索证据编号的原子事实数量",
+    )
+    citation_validity_rate: float | None = Field(
+        default=None,
+        ge=0,
+        le=1,
+        description="原子事实证据编号有效率",
+    )
+    missing_information_count: int = Field(
+        default=0,
+        ge=0,
+        description="生成器明确列出的证据缺口数量",
+    )
 class ChatResponse(BaseModel):
     request_id: str = Field(description="用于日志排查的请求 ID")
     answer: str = Field(description="大模型生成的回答内容")
+    elapsed_ms: float = Field(
+        default=0.0,
+        ge=0,
+        description="服务端从接收请求到构造响应的耗时，单位毫秒",
+    )
     verified_citations: list[CitationItem] = Field(
         default_factory=list,
         description="文档 ID 和块 ID 均通过后验校验的引用",
@@ -75,6 +102,10 @@ class ChatResponse(BaseModel):
     unverified_citations: list[CitationItem] = Field(
         default_factory=list,
         description="未出现在本次检索结果中的引用",
+    )
+    grounding: GroundingMetrics = Field(
+        default_factory=GroundingMetrics,
+        description="事实级引用覆盖情况",
     )
     retrieval_count: int = Field(
         default=0,

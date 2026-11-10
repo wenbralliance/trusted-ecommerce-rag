@@ -1,0 +1,382 @@
+{
+  "faithfulness": [
+    {
+      "question_id": "3e93c270-0412-4f37-ac59-9f207a3f145f",
+      "faithfulness": 0.9445482866043613,
+      "segments": [
+        {
+          "segment": "根据现有证据，索尼α6700在多项硬性需求上有直接支持：支持4K录制、侧翻触摸屏、机身重量493g（含电池和存储卡）、具备动物眼部识别、支持4K 120p与FHD 240p机内S&Q慢动作/快动作、具备五轴机身防抖、支持5GHz Wi-Fi、机身底部有1/4英寸-20 UNC螺纹孔。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "但存在关键缺口：其低光自动对焦标注为EV-3.0，未达到证据中提到的EV-4或更低要求；机内直出肤色方面，证据明确称索尼品牌通常不被视为与佳能或富士同档，社区对肤色呈现仍有争议。",
+          "score": 0.8,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "此外，关于瀑布旁连续直播2小时且不携带额外供电设备、水雾环境实时收声不中断、单手变焦至10米外攀岩者、90%素材直接导入手机剪辑、夕阳逆光下肤色自然柔化等需求，现有证据均无法确认。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 3,
+      "total_segments": 3
+    },
+    {
+      "question_id": "e61a3936-4b55-4ba8-a9f5-a2efd8e20c41",
+      "faithfulness": 0.7950564670786278,
+      "segments": [
+        {
+          "segment": "根据现有证据，无法确认有任何一款键盘能同时满足你的全部需求。可核验的情况如下：Keychron Q1 Max 配备物理旋钮、支持 QMK/VIA 改键、可通过 2.4G/蓝牙连接最多 4 台设备并用组合键切换，且采用 PBT 键帽与双色注塑工艺；",
+          "score": 0.8,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "ASUS ROG Azoth 宽度 32.6cm（小于 40cm）、蓝牙 5.1、可配对三台设备并通过侧边旋钮切换，键帽为 PBT 双色注塑；ROG Strix Scope II 96 宽度 37.7cm、蓝牙 5.1、可连接三台设备，键帽为 PBT 二色成型。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "但关于延迟低于普通蓝牙、敲击声不高于翻书声、RGB 关闭下续航至少 80 小时、免焊接换轴、显示 CPU 温度、每天 12000 次敲击三年字符不模糊等硬性要求，证据中均无对应数据或明确说明，根据现有证据无法确认。",
+          "score": 0.5384615384615384,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 3,
+      "total_segments": 3
+    },
+    {
+      "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
+      "faithfulness": 0.9596666666666666,
+      "segments": [
+        {
+          "segment": "根据现有证据，可确认以下与你的需求相关的信息：Soundcore Space One 为包耳式（over-ear）耳机，采用自适应主动降噪，降噪频谱图显示人声覆盖频段中频良好值小于-15dB；其耳垫为柔软服贴的人工蛋白皮，头梁可弯曲、外侧包裹柔软海绵、内侧填充海绵。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "索尼 WH-1000X M5 为封闭式耳罩设计，证据称其在中高频段能降低环境噪音到刺耳刹车声等各种噪音，并称针对150Hz至3000Hz人声频段有降噪效果。Bose QuietComfort 45 有安静和感知两种模式，证据称可消除家人谈话声，并推断其ANC覆盖低中频。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Bose QuietComfort Ultra Headphones 夹紧力约3.5N、重量约254克，耳垫材质为蛋白质皮革，证据称可减少中频噪音如环境杂音。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Sennheiser Momentum True Wireless 3 为真无线入耳式，单耳5.8g，随附4种尺寸硅胶耳垫和3种耳翼。Bose QuietComfort Ultra Earbuds 为真无线主动降噪型号，证据称可智能识别并动态抑制突发的中高频噪声。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "关于长时间佩戴不夹头，仅Soundcore Space One和Bose QuietComfort 45有头梁衬垫柔软、分散压力的描述，但均无长时间佩戴实测结论。关于价格与预算，所有证据均未提供价格信息，根据现有证据无法确认哪款符合你的预算。",
+          "score": 0.8,
+          "error": null,
+          "attempts": 3
+        }
+      ],
+      "scored_segments": 5,
+      "total_segments": 5
+    },
+    {
+      "question_id": "c1e2da34-f9b6-4709-b904-0cbc63a836a0",
+      "faithfulness": 0.8846211440551063,
+      "segments": [
+        {
+          "segment": "根据现有证据，EltaMD UV Skin Recovery Broad Spectrum SPF 50 最接近你的要求：其活性成分仅为12.9%氧化锌，属纯物理防晒，官方标注无香精、无酒精、无尼泊金酯类防腐剂、无精油；",
+          "score": 0.8571428571428571,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "采用表面包覆处理技术，含甘油、神经酰胺、角鲨烷等保湿成分，为轻盈乳液质地；提供绿调修红版以中和泛红；非防水配方，官方临床测试证明可配合氨基酸泡沫洁面卸除；SPF 50，官方说明所有EltaMD防晒均达PA+++。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "但证据未明确其是否含乳化剂，也未说明是否含其他可能刺激的辅料，无法确认对乳化剂敏感者是否安全。其他产品：Tower 28为氧化锌纯物理防晒、SPF30、Broad Spectrum，但证据未提及其是否无香精酒精、能否氨基酸洁面卸除及润色修红；",
+          "score": 0.9090909090909091,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Hero Cosmetics为17.53%氧化锌纯物理防晒、SPF30、广谱，但证据未提及其清洁方式、是否无香精酒精及润色；First Aid Beauty仅证实22%氧化锌纯物理防晒，其余信息缺失；",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "skinbetter science为二氧化钛加氧化锌矿物防晒，标注不含防腐剂、无香料，但SPF75超出你30-50的范围，且未提及清洁方式与润色；CeraVe仅证实SPF30、Broad Spectrum，其余信息缺失；",
+          "score": 0.7777777777777778,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Colorescience证据未提及其防晒活性成分是否为纯物理。因此，根据现有证据无法完全确认任何一款同时满足你全部硬性约束，尤其缺乏对乳化剂耐受性和氨基酸洁面可卸的完整确认。",
+          "score": 0.75,
+          "error": null,
+          "attempts": 2
+        }
+      ],
+      "scored_segments": 6,
+      "total_segments": 6
+    },
+    {
+      "question_id": "b264aabe-4ee1-4422-99bb-59e4987691a4",
+      "faithfulness": 1.0,
+      "segments": [
+        {
+          "segment": "根据现有证据，有几款入门级A醇精华在浓度、质地和成分安全性上符合你的要求，但与你现有珂润、理肤泉产品兼容性有明确证据的只有部分产品。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Innisfree Retinol Cica Repair Ampoule的A醇浓度约0.015%，以水为基底、不含矿物油和高含量硬脂酸，质地清爽，无酒精、无香精、无精油，含水杨酸但位于成分表倒数第二位、推定为低浓度。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "The INKEY List Retinol Serum为1%缓释视黄酸酯，质地轻盈不油腻，不含酒精、香精、高风险防腐剂和高浓度去角质酸类，且证据明确写出视黄醇可与神经酰胺、泛醇（B5）、积雪草搭配使用。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Versed Skin Press Restart Serum采用包裹型视黄醇等更温和形式，质地轻盈，不含酒精、香精、高风险防腐剂和高浓度去角质酸类。科颜氏视黄醇抗皱紧实精华乳有证据明确写出其不与珂润润浸保湿水冲突、也不与含泛醇和羟基积雪草甙的理肤泉B5冲突。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "但需注意：Innisfree、The INKEY List、Versed三款与你现有珂润、理肤泉产品的具体兼容性，证据中未逐一明确核对；且证据提到视黄醇不应与高浓度去角质酸类同时使用。根据现有证据无法确认哪一款最适合你的油性敏感肌，也无法确认这些产品对闭口和泛红的具体效果。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 5,
+      "total_segments": 5
+    },
+    {
+      "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
+      "faithfulness": 0.8362573099415205,
+      "segments": [
+        {
+          "segment": "在现有证据中，只有 Garmin epix Pro (Gen 2) Sapphire 与你的多项需求直接相关，但证据并不完整，无法确认它满足全部要求。",
+          "score": 0.6666666666666666,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "可确认的是：它支持多频多系统 GNSS（L1+L5，含 GPS、GLONASS、Galileo、北斗、QZSS），在林地峡谷开启“所有系统+多频”可减少多路径误差；内置 32GB，可脱离手机独立记录轨迹，并支持导出 FIT、TCX、GPX、KML、CSV；",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "具备开放水域游泳模式，官方标注 10 ATM 防水、适用于表面游泳；42mm 型号在开启全部卫星系统及屏幕常亮时续航 13 小时以上；AMOLED 峰值亮度 1200 nits；47mm 智能模式续航 16 天、51mm 31 天，42mm 时间/省电模式 14 天；",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "支持 Garmin Pay NFC，在中国大陆支持“北京互通卡”等交通卡模拟；采用钛合金表圈及后壳、合成蓝宝石镜面，配氟橡胶或硅胶表带并支持 QuickFit 快拆。但睡眠监测准确性、跨时区分析功能、酒店门卡和健身房门禁模拟均无证据支持；",
+          "score": 0.6,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "续航 14 天仅对应 42mm 时间/省电模式，47mm/51mm 的 16/31 天为智能模式，需注意型号差异。",
+          "score": 0.8,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 5,
+      "total_segments": 5
+    },
+    {
+      "question_id": "932f5e19-8177-4998-be4a-073571f3e5a5",
+      "faithfulness": 0.6910812157448929,
+      "segments": [
+        {
+          "segment": "根据现有证据，无法确认有完全满足您全部苛刻要求的水壶。逐项来看：容量方面，钛立维TD-P001标称5000mL、米家恒温电水壶2 Pro标称1.7L，均达到至少1.5升；",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "温度档位方面，ICOOKPOT YSH20(07)B-BLACK-A明确具有85°C和100°C档位，康佳KYSH-1509-M有绿茶和红茶烹煮按键但仅为推断；保温方面，美的MK-YS20P502具备11段定温、12小时长效保温，可维持在设定温度而非反复回沸。",
+          "score": 0.8888888888888888,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "但您最在意的“长期使用不析出重金属或怪味”以及“不产生金属味”这两点，证据中只有各产品符合GB 4806等食品接触材料标准、感官要求“不得使食品味道气味产生不可接受的改变”的合规性描述，没有任何证据能证明长期使用后不析出重金属、不产生异味，也没有任何证据直接回应“不锈钢壶泡绿茶有金属味”的问题。",
+          "score": 0.16666666666666666,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "此外，美的MK-YS20P502的容量、精确温度档位，以及钛立维的温控档位和保温噪音表现，证据中均未明确给出。因此，根据现有证据无法确认存在同时满足您全部需求的水壶。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 4,
+      "total_segments": 4
+    },
+    {
+      "question_id": "fd2b165f-6cef-4bf6-adfd-568457eb594f",
+      "faithfulness": 0.7037711050449904,
+      "segments": [
+        {
+          "segment": "根据现有证据，最匹配你需求的是CeraVe Renewing SA Cleanser：它同时含有水杨酸和烟酰胺，标明可用于面部和身体，含神经酰胺、透明质酸和甘油，并声明不致粉刺、无香精、经皮肤科医生研发。",
+          "score": 0.8571428571428571,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "另一款CeraVe Acne Control Cleanser明确含2%水杨酸和烟酰胺，也含三种神经酰胺，标注非致粉刺性、无香精、通过过敏测试，但证据未说明它是否可用于身体。关于淡斑，证据只确认烟酰胺作为淡斑辅助成分存在，未给出淡斑效果数据；",
+          "score": 0.8888888888888888,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "关于温和性，证据未提供你过去使用强效祛痘产品后干燥、刺激的具体对比或耐受性保证。因此，根据现有证据无法确认哪款产品能同时完全满足淡化顽固暗斑、保持清透且绝对温和不损伤屏障的全部要求。",
+          "score": 0.2857142857142857,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 3,
+      "total_segments": 3
+    },
+    {
+      "question_id": "6fb5a285-fe43-418d-a3d4-5a871da67963",
+      "faithfulness": 0.7583774250440917,
+      "segments": [
+        {
+          "segment": "根据现有证据，只有 Logitech BRIO C1000s 4K 网络摄像头明确支持通过官方 Logitech Capture 软件以 9:16 竖屏格式直接录制，可生成适合手机社交媒体的竖屏短片，并可通过可拆卸安装夹和 1/4 英寸三脚架螺纹孔实现机身物理旋转 90 度安装。",
+          "score": 0.6666666666666666,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "但关于你提出的其他关键需求，证据均无法确认：没有证据说明该摄像头在一臂左右距离的声音清晰度、是否发闷，也没有画面清晰流畅、移动中不失焦、应对窗户光线变化、实体镜头盖、简单剪辑工具或直接给直播课加标题等信息。",
+          "score": 0.8888888888888888,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "其他检索到的商品为安防摄像头、相机或手机，证据未显示它们支持竖屏录制或满足直播教学场景。因此，根据现有证据无法确认有产品能同时满足你的全部要求。",
+          "score": 0.75,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 3,
+      "total_segments": 3
+    },
+    {
+      "question_id": "b3c113d3-981a-457e-844c-d95e169c30c2",
+      "faithfulness": 0.8843853820598007,
+      "segments": [
+        {
+          "segment": "根据现有证据，有两款女性内穿护具可能符合你的需求。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "XION Freeride Evo D3O Women’s Impact Shorts 覆盖尾椎、双侧髋部和臀部，采用第二层皮肤设计，可穿在其他衣物内，主护片厚10mm、辅助护片厚8mm，通过CE EN1621-1 Level 1认证，使用D3O和XRD材料，官方称静止时柔软、受冲击时变硬，并适合寒冷条件使用。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "Demon Flexforce X D3O/XRD Women’s Impact Shorts 同样覆盖尾椎、双侧髋部、大腿和臀部，尾椎垫通过CE EN1621-1认证，采用D3O T6与XRD双层组合，为修身剪裁，第三方评测称其不臃肿，约10mm厚，可穿在雪裤内。",
+          "score": 1.0,
+          "error": null,
+          "attempts": 1
+        },
+        {
+          "segment": "关于你坐着系滑雪板时更舒服的需求，现有证据只提到XION尾椎垫有透孔减压设计，没有明确说明两款产品在坐姿下的舒适度。关于“既防疼又防骨折”，证据仅表明两款产品通过CE EN1621-1认证并采用吸能材料，未明确承诺同时防疼和防骨折。",
+          "score": 0.5714285714285714,
+          "error": null,
+          "attempts": 1
+        }
+      ],
+      "scored_segments": 4,
+      "total_segments": 4
+    }
+  ],
+  "answer_relevancy": [
+    {
+      "question_id": "3e93c270-0412-4f37-ac59-9f207a3f145f",
+      "answer_relevancy": 0.3188991322176041,
+      "error": null
+    },
+    {
+      "question_id": "e61a3936-4b55-4ba8-a9f5-a2efd8e20c41",
+      "answer_relevancy": 0.517184126205059,
+      "error": null
+    },
+    {
+      "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
+      "answer_relevancy": 0.5155642407172745,
+      "error": null
+    },
+    {
+      "question_id": "c1e2da34-f9b6-4709-b904-0cbc63a836a0",
+      "answer_relevancy": 0.4522760248805982,
+      "error": null
+    },
+    {
+      "question_id": "b264aabe-4ee1-4422-99bb-59e4987691a4",
+      "answer_relevancy": 0.8373298913720794,
+      "error": null
+    },
+    {
+      "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
+      "answer_relevancy": 0.3745619180661621,
+      "error": null
+    },
+    {
+      "question_id": "932f5e19-8177-4998-be4a-073571f3e5a5",
+      "answer_relevancy": 0.7568842786631657,
+      "error": null
+    },
+    {
+      "question_id": "fd2b165f-6cef-4bf6-adfd-568457eb594f",
+      "answer_relevancy": 0.5124076334700357,
+      "error": null
+    },
+    {
+      "question_id": "6fb5a285-fe43-418d-a3d4-5a871da67963",
+      "answer_relevancy": 0.5358550676194586,
+      "error": null
+    },
+    {
+      "question_id": "b3c113d3-981a-457e-844c-d95e169c30c2",
+      "answer_relevancy": 0.7024090896850703,
+      "error": null
+    }
+  ]
+}

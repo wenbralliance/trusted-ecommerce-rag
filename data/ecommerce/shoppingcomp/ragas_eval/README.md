@@ -2,6 +2,11 @@
 
 本目录包含 2026-10-26 生成的 10 条 RAG 评测样本。
 
+> 这是旧生成流程的历史报告。2026-11-10 的“旧流程 vs 事实级证据生成”配对结果见
+> `../evaluation/BENCHMARK.md` 和
+> `../evaluation/groundedness/comparison_report.json`。最新忠实度为 94.80%，
+> 旧流程同口径基线为 77.61%。
+
 ## 文件说明
 
 - `samples.jsonl`：问题、大模型生成的参考回答、真实 RAG 回答、检索商品、检索上下文、引用记录和标准商品。

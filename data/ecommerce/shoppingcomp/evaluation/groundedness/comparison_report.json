@@ -1,0 +1,171 @@
+{
+  "baseline_file": "data\\ecommerce\\shoppingcomp\\evaluation\\groundedness\\baseline_ragas_scores.json",
+  "candidate_file": "data\\ecommerce\\shoppingcomp\\evaluation\\groundedness\\candidate_ragas_scores.json",
+  "confidence_method": "paired percentile bootstrap, 10000 resamples, seed 20261110",
+  "comparisons": {
+    "faithfulness": {
+      "paired_samples": 10,
+      "baseline_mean": 0.7760770711683366,
+      "candidate_mean": 0.9480331668224112,
+      "delta": 0.17195609565407466,
+      "delta_percentage_points": 17.195609565407466,
+      "relative_change_percent": 22.157090067769335,
+      "delta_ci95": {
+        "lower": 0.08043302347996548,
+        "upper": 0.2653311560769127
+      },
+      "delta_ci95_percentage_points": {
+        "lower": 8.043302347996548,
+        "upper": 26.533115607691272
+      },
+      "wins": 9,
+      "ties": 0,
+      "losses": 1,
+      "sign_test_p_value": 0.021484375,
+      "per_question": [
+        {
+          "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
+          "baseline": 0.782482993197279,
+          "candidate": 1.0,
+          "delta": 0.217517006802721
+        },
+        {
+          "question_id": "3e93c270-0412-4f37-ac59-9f207a3f145f",
+          "baseline": 0.7978800233618618,
+          "candidate": 1.0,
+          "delta": 0.2021199766381382
+        },
+        {
+          "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
+          "baseline": 0.9663099484740388,
+          "candidate": 0.868380062305296,
+          "delta": -0.09792988616874287
+        },
+        {
+          "question_id": "6fb5a285-fe43-418d-a3d4-5a871da67963",
+          "baseline": 0.5409348508266592,
+          "candidate": 1.0,
+          "delta": 0.45906514917334085
+        },
+        {
+          "question_id": "932f5e19-8177-4998-be4a-073571f3e5a5",
+          "baseline": 0.6343581645922348,
+          "candidate": 0.86929098726373,
+          "delta": 0.23493282267149518
+        },
+        {
+          "question_id": "b264aabe-4ee1-4422-99bb-59e4987691a4",
+          "baseline": 0.9191034051858795,
+          "candidate": 0.9510073260073261,
+          "delta": 0.03190392082144655
+        },
+        {
+          "question_id": "b3c113d3-981a-457e-844c-d95e169c30c2",
+          "baseline": 0.7164882226980729,
+          "candidate": 1.0,
+          "delta": 0.2835117773019271
+        },
+        {
+          "question_id": "c1e2da34-f9b6-4709-b904-0cbc63a836a0",
+          "baseline": 0.7217821009114744,
+          "candidate": 0.9537448515066117,
+          "delta": 0.23196275059513727
+        },
+        {
+          "question_id": "e61a3936-4b55-4ba8-a9f5-a2efd8e20c41",
+          "baseline": 0.8475948592829513,
+          "candidate": 0.8923364854215917,
+          "delta": 0.04474162613864041
+        },
+        {
+          "question_id": "fd2b165f-6cef-4bf6-adfd-568457eb594f",
+          "baseline": 0.8338361431529133,
+          "candidate": 0.9455719557195572,
+          "delta": 0.11173581256664389
+        }
+      ]
+    },
+    "answer_relevancy": {
+      "paired_samples": 10,
+      "baseline_mean": 0.5507363106974489,
+      "candidate_mean": 0.43737140946267045,
+      "delta": -0.11336490123477844,
+      "delta_percentage_points": -11.336490123477844,
+      "relative_change_percent": -20.584243136468316,
+      "delta_ci95": {
+        "lower": -0.26429047250683263,
+        "upper": -0.001257336182467267
+      },
+      "delta_ci95_percentage_points": {
+        "lower": -26.42904725068326,
+        "upper": -0.12573361824672669
+      },
+      "wins": 3,
+      "ties": 1,
+      "losses": 6,
+      "sign_test_p_value": 0.5078125,
+      "per_question": [
+        {
+          "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
+          "baseline": 0.6708460373479258,
+          "candidate": 0.0,
+          "delta": -0.6708460373479258
+        },
+        {
+          "question_id": "3e93c270-0412-4f37-ac59-9f207a3f145f",
+          "baseline": 0.3902717826358672,
+          "candidate": 0.3182101679855121,
+          "delta": -0.0720616146503551
+        },
+        {
+          "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
+          "baseline": 0.5951023513246151,
+          "candidate": 0.2990663910718137,
+          "delta": -0.2960359602528014
+        },
+        {
+          "question_id": "6fb5a285-fe43-418d-a3d4-5a871da67963",
+          "baseline": 0.0,
+          "candidate": 0.0,
+          "delta": 0.0
+        },
+        {
+          "question_id": "932f5e19-8177-4998-be4a-073571f3e5a5",
+          "baseline": 0.6056853919994397,
+          "candidate": 0.5713717836203782,
+          "delta": -0.0343136083790615
+        },
+        {
+          "question_id": "b264aabe-4ee1-4422-99bb-59e4987691a4",
+          "baseline": 0.8628990014087243,
+          "candidate": 0.7035707884245164,
+          "delta": -0.15932821298420796
+        },
+        {
+          "question_id": "b3c113d3-981a-457e-844c-d95e169c30c2",
+          "baseline": 0.6367843147050641,
+          "candidate": 0.711245851051245,
+          "delta": 0.07446153634618091
+        },
+        {
+          "question_id": "c1e2da34-f9b6-4709-b904-0cbc63a836a0",
+          "baseline": 0.6895117368437629,
+          "candidate": 0.5858381630759402,
+          "delta": -0.10367357376782271
+        },
+        {
+          "question_id": "e61a3936-4b55-4ba8-a9f5-a2efd8e20c41",
+          "baseline": 0.462948914334082,
+          "candidate": 0.5500313538862764,
+          "delta": 0.08708243955219447
+        },
+        {
+          "question_id": "fd2b165f-6cef-4bf6-adfd-568457eb594f",
+          "baseline": 0.5933135763750076,
+          "candidate": 0.6343795955110223,
+          "delta": 0.04106601913601471
+        }
+      ]
+    }
+  }
+}

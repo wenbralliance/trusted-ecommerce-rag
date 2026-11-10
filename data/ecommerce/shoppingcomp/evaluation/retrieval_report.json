@@ -10,8 +10,13 @@
   },
   "candidate_summary": {
     "hit_rate": 0.9,
-    "mean_precision": 0.19588357312622018,
-    "mean_recall": 0.8516666666666668
+    "mean_precision": 0.196204085946733,
+    "mean_recall": 0.8516666666666668,
+    "search_latency_ms": {
+      "mean": 321.49832498980686,
+      "p50": 95.3953000716865,
+      "p95": 1237.8008998930454
+    }
   },
   "mode_summaries": {
     "no-rerank": {
@@ -20,8 +25,37 @@
       "mean_precision": 0.35,
       "mean_recall": 0.7725,
       "mean_f1": 0.4326190476190477,
-      "mrr": 0.6958333333333333,
-      "queries_with_rerank_alerts": 0
+      "mrr": 0.6916666666666667,
+      "ndcg_at_5": 0.662406233081101,
+      "mean_average_precision": 0.5449444444444445,
+      "queries_with_rerank_alerts": 0,
+      "ci95": {
+        "mean_precision": {
+          "lower": 0.25,
+          "upper": 0.45999999999999996
+        },
+        "mean_recall": {
+          "lower": 0.6133333333333334,
+          "upper": 0.9083333333333334
+        },
+        "mean_f1": {
+          "lower": 0.33797619047619054,
+          "upper": 0.5252380952380953
+        },
+        "mrr": {
+          "lower": 0.5166666666666667,
+          "upper": 0.8541666666666666
+        },
+        "ndcg_at_5": {
+          "lower": 0.5255518199796716,
+          "upper": 0.7907510311947689
+        }
+      },
+      "ranking_latency_ms": {
+        "mean": 0.010920013301074505,
+        "p50": 0.010499963536858559,
+        "p95": 0.013600103557109833
+      }
     },
     "rerank": {
       "queries": 20,
@@ -30,7 +64,36 @@
       "mean_recall": 0.8316666666666667,
       "mean_f1": 0.48623015873015873,
       "mrr": 0.9,
-      "queries_with_rerank_alerts": 0
+      "ndcg_at_5": 0.8669036824255206,
+      "mean_average_precision": 0.8316666666666667,
+      "queries_with_rerank_alerts": 0,
+      "ci95": {
+        "mean_precision": {
+          "lower": 0.28,
+          "upper": 0.54
+        },
+        "mean_recall": {
+          "lower": 0.6716666666666666,
+          "upper": 0.9566666666666667
+        },
+        "mean_f1": {
+          "lower": 0.368452380952381,
+          "upper": 0.6034920634920635
+        },
+        "mrr": {
+          "lower": 0.75,
+          "upper": 1.0
+        },
+        "ndcg_at_5": {
+          "lower": 0.7169036824255207,
+          "upper": 0.9934397461243829
+        }
+      },
+      "ranking_latency_ms": {
+        "mean": 340.93949500238523,
+        "p50": 339.63019982911646,
+        "p95": 391.35489985346794
+      }
     }
   },
   "results": [
@@ -40,7 +103,8 @@
         "candidate_product_count": 14,
         "precision": 0.07142857142857142,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 1237.8008998930454
       },
       "modes": {
         "no-rerank": {
@@ -56,7 +120,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 0.3333333333333333,
-          "alerts": []
+          "ndcg_at_5": 0.5,
+          "average_precision": 0.3333333333333333,
+          "alerts": [],
+          "latency_ms": 0.010699965059757233
         },
         "rerank": {
           "selected_products": [
@@ -71,7 +138,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 411.76980012096465
         }
       },
       "group_count": 14
@@ -82,7 +152,8 @@
         "candidate_product_count": 15,
         "precision": 0.06666666666666667,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 1206.6844999790192
       },
       "modes": {
         "no-rerank": {
@@ -98,7 +169,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 0.25,
-          "alerts": []
+          "ndcg_at_5": 0.43067655807339306,
+          "average_precision": 0.25,
+          "alerts": [],
+          "latency_ms": 0.015099998563528061
         },
         "rerank": {
           "selected_products": [
@@ -113,7 +187,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 370.59960002079606
         }
       },
       "group_count": 15
@@ -124,7 +201,8 @@
         "candidate_product_count": 13,
         "precision": 0.07692307692307693,
         "recall": 0.3333333333333333,
-        "hit": true
+        "hit": true,
+        "latency_ms": 1242.7978999912739
       },
       "modes": {
         "no-rerank": {
@@ -140,7 +218,10 @@
           "f1": 0.25,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.46927872602275644,
+          "average_precision": 0.3333333333333333,
+          "alerts": [],
+          "latency_ms": 0.009699957445263863
         },
         "rerank": {
           "selected_products": [
@@ -155,7 +236,10 @@
           "f1": 0.25,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.46927872602275644,
+          "average_precision": 0.3333333333333333,
+          "alerts": [],
+          "latency_ms": 341.73929993994534
         }
       },
       "group_count": 13
@@ -163,26 +247,30 @@
     {
       "question_id": "42fa6e81-40f3-4050-b71b-9112fd23a49e",
       "candidate": {
-        "candidate_product_count": 13,
-        "precision": 0.07692307692307693,
+        "candidate_product_count": 12,
+        "precision": 0.08333333333333333,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 1227.5207000784576
       },
       "modes": {
         "no-rerank": {
           "selected_products": [
             "NU Aqua Efficiency Series Tankless 800 GPD UV Reverse Osmosis System (2:1 Pure-to-Waste)",
-            "钛立维TD-P001恒温电热水壶",
             "凯度 (Casdon) Z10 嵌入式制冰净饮机",
+            "钛立维TD-P001恒温电热水壶",
             "Euro Cuisine RFCX12 无绳/可充电式切碎机",
-            "米家恒温电水壶2 Pro"
+            "海尔 EC6003HD-BK5KAU1 60升净滤小蓝瓶横式电热水器"
           ],
           "precision": 0.2,
           "recall": 1.0,
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 0.010499963536858559
         },
         "rerank": {
           "selected_products": [
@@ -197,10 +285,13 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 391.35489985346794
         }
       },
-      "group_count": 13
+      "group_count": 12
     },
     {
       "question_id": "2e6385e6-a27f-4e1b-95aa-7bfb8afa3726",
@@ -208,7 +299,8 @@
         "candidate_product_count": 13,
         "precision": 0.3076923076923077,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 105.79309985041618
       },
       "modes": {
         "no-rerank": {
@@ -224,7 +316,10 @@
           "f1": 0.6666666666666665,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.8318724637288826,
+          "average_precision": 0.75,
+          "alerts": [],
+          "latency_ms": 0.01209997572004795
         },
         "rerank": {
           "selected_products": [
@@ -239,7 +334,10 @@
           "f1": 0.888888888888889,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 317.95110017992556
         }
       },
       "group_count": 13
@@ -250,7 +348,8 @@
         "candidate_product_count": 9,
         "precision": 0.1111111111111111,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 116.0011999309063
       },
       "modes": {
         "no-rerank": {
@@ -266,7 +365,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 0.25,
-          "alerts": []
+          "ndcg_at_5": 0.43067655807339306,
+          "average_precision": 0.25,
+          "alerts": [],
+          "latency_ms": 0.009599840268492699
         },
         "rerank": {
           "selected_products": [
@@ -281,7 +383,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 354.70529994927347
         }
       },
       "group_count": 9
@@ -292,7 +397,8 @@
         "candidate_product_count": 13,
         "precision": 0.38461538461538464,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 104.65879994444549
       },
       "modes": {
         "no-rerank": {
@@ -308,7 +414,10 @@
           "f1": 0.8000000000000002,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.830419897363192,
+          "average_precision": 0.71,
+          "alerts": [],
+          "latency_ms": 0.013600103557109833
         },
         "rerank": {
           "selected_products": [
@@ -323,7 +432,10 @@
           "f1": 1.0,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 335.4994000401348
         }
       },
       "group_count": 13
@@ -334,7 +446,8 @@
         "candidate_product_count": 8,
         "precision": 0.375,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 94.9597000144422
       },
       "modes": {
         "no-rerank": {
@@ -350,13 +463,16 @@
           "f1": 0.5,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.7653606369886217,
+          "average_precision": 0.6666666666666666,
+          "alerts": [],
+          "latency_ms": 0.01100008375942707
         },
         "rerank": {
           "selected_products": [
             "松下(Panasonic)浴霸FV-RB20Y1",
-            "Panasonic FV-30BK2C",
             "Panasonic FV-TB3OUSAW",
+            "Panasonic FV-30BK2C",
             "美的 F8032-JA7(HE)",
             "美的(Midea)电热水器 60L F6033系列"
           ],
@@ -365,7 +481,10 @@
           "f1": 0.7499999999999999,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 339.63019982911646
         }
       },
       "group_count": 8
@@ -376,7 +495,8 @@
         "candidate_product_count": 11,
         "precision": 0.8181818181818182,
         "recall": 0.9,
-        "hit": true
+        "hit": true,
+        "latency_ms": 85.76629986055195
       },
       "modes": {
         "no-rerank": {
@@ -392,7 +512,10 @@
           "f1": 0.6666666666666666,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 0.5,
+          "alerts": [],
+          "latency_ms": 0.010800082236528397
         },
         "rerank": {
           "selected_products": [
@@ -407,7 +530,10 @@
           "f1": 0.6666666666666666,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 0.5,
+          "alerts": [],
+          "latency_ms": 315.74820005334914
         }
       },
       "group_count": 11
@@ -415,44 +541,51 @@
     {
       "question_id": "e1e81125-c1d6-475b-a4de-24e1ac01c3c6",
       "candidate": {
-        "candidate_product_count": 6,
+        "candidate_product_count": 7,
         "precision": 0.0,
         "recall": 0.0,
-        "hit": false
+        "hit": false,
+        "latency_ms": 94.52990000136197
       },
       "modes": {
         "no-rerank": {
           "selected_products": [
             "RAINPOINT Smart WiFi Solar Automatic Plant Watering System for House Potted Plants Gen 2",
             "ASUS ROG Strix B650E-I Gaming WiFi",
+            "华硕 ROG STRIX X670E-I GAMING WIFI",
             "ASRock B650E PG-ITX WiFi",
-            "ASUS USB-AX56 Dual Band AX1800 USB WiFi Adapter",
-            "华硕 ROG STRIX X670E-I GAMING WIFI"
+            "ASUS USB-AX56 Dual Band AX1800 USB WiFi Adapter"
           ],
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "hit": false,
           "reciprocal_rank": 0.0,
-          "alerts": []
+          "ndcg_at_5": 0.0,
+          "average_precision": 0.0,
+          "alerts": [],
+          "latency_ms": 0.010300194844603539
         },
         "rerank": {
           "selected_products": [
             "ASUS USB-AX56 Dual Band AX1800 USB WiFi Adapter",
             "RAINPOINT Smart WiFi Solar Automatic Plant Watering System for House Potted Plants Gen 2",
+            "Asus ROG Strix X870-I Gaming WiFi",
             "华硕 ROG STRIX X670E-I GAMING WIFI",
-            "ASRock B650I Lightning WiFi 6E",
-            "ASRock B650E PG-ITX WiFi"
+            "ASRock B650I Lightning WiFi 6E"
           ],
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
           "hit": false,
           "reciprocal_rank": 0.0,
-          "alerts": []
+          "ndcg_at_5": 0.0,
+          "average_precision": 0.0,
+          "alerts": [],
+          "latency_ms": 327.94050010852516
         }
       },
-      "group_count": 6
+      "group_count": 7
     },
     {
       "question_id": "697a9c75-f676-4323-8de2-fd3d7b754694",
@@ -460,7 +593,8 @@
         "candidate_product_count": 9,
         "precision": 0.1111111111111111,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 98.75319991260767
       },
       "modes": {
         "no-rerank": {
@@ -476,7 +610,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 0.010200077667832375
         },
         "rerank": {
           "selected_products": [
@@ -491,7 +628,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 353.64959994331
         }
       },
       "group_count": 9
@@ -502,7 +642,8 @@
         "candidate_product_count": 12,
         "precision": 0.0,
         "recall": 0.0,
-        "hit": false
+        "hit": false,
+        "latency_ms": 98.60739996656775
       },
       "modes": {
         "no-rerank": {
@@ -518,7 +659,10 @@
           "f1": 0.0,
           "hit": false,
           "reciprocal_rank": 0.0,
-          "alerts": []
+          "ndcg_at_5": 0.0,
+          "average_precision": 0.0,
+          "alerts": [],
+          "latency_ms": 0.010499963536858559
         },
         "rerank": {
           "selected_products": [
@@ -533,7 +677,10 @@
           "f1": 0.0,
           "hit": false,
           "reciprocal_rank": 0.0,
-          "alerts": []
+          "ndcg_at_5": 0.0,
+          "average_precision": 0.0,
+          "alerts": [],
+          "latency_ms": 390.6211000867188
         }
       },
       "group_count": 12
@@ -544,7 +691,8 @@
         "candidate_product_count": 17,
         "precision": 0.23529411764705882,
         "recall": 0.8,
-        "hit": true
+        "hit": true,
+        "latency_ms": 95.3953000716865
       },
       "modes": {
         "no-rerank": {
@@ -560,7 +708,10 @@
           "f1": 0.4000000000000001,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.5531464700081437,
+          "average_precision": 0.4,
+          "alerts": [],
+          "latency_ms": 0.01100008375942707
         },
         "rerank": {
           "selected_products": [
@@ -575,7 +726,10 @@
           "f1": 0.8000000000000002,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.8687949224876582,
+          "average_precision": 0.8,
+          "alerts": [],
+          "latency_ms": 367.45509994216263
         }
       },
       "group_count": 17
@@ -586,7 +740,8 @@
         "candidate_product_count": 6,
         "precision": 0.3333333333333333,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 87.6728999428451
       },
       "modes": {
         "no-rerank": {
@@ -602,7 +757,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 0.25,
-          "alerts": []
+          "ndcg_at_5": 0.5012658353418871,
+          "average_precision": 0.325,
+          "alerts": [],
+          "latency_ms": 0.009200070053339005
         },
         "rerank": {
           "selected_products": [
@@ -617,7 +775,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 288.0735001526773
         }
       },
       "group_count": 6
@@ -628,7 +789,8 @@
         "candidate_product_count": 9,
         "precision": 0.2222222222222222,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 88.88240018859506
       },
       "modes": {
         "no-rerank": {
@@ -644,7 +806,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 0.5,
-          "alerts": []
+          "ndcg_at_5": 0.6509209298071326,
+          "average_precision": 0.5,
+          "alerts": [],
+          "latency_ms": 0.010400079190731049
         },
         "rerank": {
           "selected_products": [
@@ -659,7 +824,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 318.8928999006748
         }
       },
       "group_count": 9
@@ -670,7 +838,8 @@
         "candidate_product_count": 12,
         "precision": 0.16666666666666666,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 89.21050000935793
       },
       "modes": {
         "no-rerank": {
@@ -686,7 +855,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.8772153153380493,
+          "average_precision": 0.75,
+          "alerts": [],
+          "latency_ms": 0.0100000761449337
         },
         "rerank": {
           "selected_products": [
@@ -701,7 +873,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 315.64339995384216
         }
       },
       "group_count": 12
@@ -712,7 +887,8 @@
         "candidate_product_count": 14,
         "precision": 0.07142857142857142,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 75.82250004634261
       },
       "modes": {
         "no-rerank": {
@@ -728,7 +904,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 0.010200077667832375
         },
         "rerank": {
           "selected_products": [
@@ -743,7 +922,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 341.1552000325173
         }
       },
       "group_count": 14
@@ -754,7 +936,8 @@
         "candidate_product_count": 11,
         "precision": 0.2727272727272727,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 85.07659984752536
       },
       "modes": {
         "no-rerank": {
@@ -770,7 +953,10 @@
           "f1": 0.7499999999999999,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 0.9060254355346823,
+          "average_precision": 0.8055555555555555,
+          "alerts": [],
+          "latency_ms": 0.009699957445263863
         },
         "rerank": {
           "selected_products": [
@@ -785,7 +971,10 @@
           "f1": 0.7499999999999999,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 324.72630008123815
         }
       },
       "group_count": 11
@@ -796,23 +985,27 @@
         "candidate_product_count": 13,
         "precision": 0.15384615384615385,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 108.35810005664825
       },
       "modes": {
         "no-rerank": {
           "selected_products": [
             "ASRock B650E PG-ITX WiFi",
+            "徕芬 Swift 4",
             "Gigabyte X870I AORUS PRO ICE (Mini-ITX, Wi‐Fi 7)",
             "XION Freeride Evo D3O Women’s Impact Shorts",
-            "徕芬 Swift 4",
             "Demon Flexforce X D3O/XRD Women’s Impact Shorts"
           ],
           "precision": 0.4,
           "recall": 1.0,
           "f1": 0.5714285714285715,
           "hit": true,
-          "reciprocal_rank": 0.3333333333333333,
-          "alerts": []
+          "reciprocal_rank": 0.25,
+          "ndcg_at_5": 0.5012658353418871,
+          "average_precision": 0.325,
+          "alerts": [],
+          "latency_ms": 0.010599847882986069
         },
         "rerank": {
           "selected_products": [
@@ -827,7 +1020,10 @@
           "f1": 0.5714285714285715,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 357.22099989652634
         }
       },
       "group_count": 13
@@ -838,7 +1034,8 @@
         "candidate_product_count": 16,
         "precision": 0.0625,
         "recall": 1.0,
-        "hit": true
+        "hit": true,
+        "latency_ms": 85.67460021004081
       },
       "modes": {
         "no-rerank": {
@@ -854,7 +1051,10 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 0.013199867680668831
         },
         "rerank": {
           "selected_products": [
@@ -869,10 +1069,86 @@
           "f1": 0.33333333333333337,
           "hit": true,
           "reciprocal_rank": 1.0,
-          "alerts": []
+          "ndcg_at_5": 1.0,
+          "average_precision": 1.0,
+          "alerts": [],
+          "latency_ms": 254.41349996253848
         }
       },
       "group_count": 16
     }
-  ]
+  ],
+  "paired_comparison": {
+    "baseline": "no-rerank",
+    "candidate": "rerank",
+    "queries": 20,
+    "metrics": {
+      "precision": {
+        "delta": 0.05,
+        "delta_percentage_points": 5.0,
+        "ci95": {
+          "lower": 0.009999999999999998,
+          "upper": 0.1
+        },
+        "wins": 4,
+        "ties": 16,
+        "losses": 0
+      },
+      "recall": {
+        "delta": 0.059166666666666666,
+        "delta_percentage_points": 5.916666666666667,
+        "ci95": {
+          "lower": 0.009999999999999998,
+          "upper": 0.11833333333333333
+        },
+        "wins": 4,
+        "ties": 16,
+        "losses": 0
+      },
+      "f1": {
+        "delta": 0.05361111111111111,
+        "delta_percentage_points": 5.361111111111111,
+        "ci95": {
+          "lower": 0.009999999999999992,
+          "upper": 0.10749999999999997
+        },
+        "wins": 4,
+        "ties": 16,
+        "losses": 0
+      },
+      "reciprocal_rank": {
+        "delta": 0.20833333333333334,
+        "delta_percentage_points": 20.833333333333336,
+        "ci95": {
+          "lower": 0.07083333333333333,
+          "upper": 0.35833333333333334
+        },
+        "wins": 6,
+        "ties": 14,
+        "losses": 0
+      },
+      "ndcg_at_5": {
+        "delta": 0.20449744934441969,
+        "delta_percentage_points": 20.44974493444197,
+        "ci95": {
+          "lower": 0.11210663884192795,
+          "upper": 0.30231665750270337
+        },
+        "wins": 12,
+        "ties": 8,
+        "losses": 0
+      },
+      "average_precision": {
+        "delta": 0.2867222222222222,
+        "delta_percentage_points": 28.67222222222222,
+        "ci95": {
+          "lower": 0.16394444444444445,
+          "upper": 0.4143055555555556
+        },
+        "wins": 12,
+        "ties": 8,
+        "losses": 0
+      }
+    }
+  }
 }

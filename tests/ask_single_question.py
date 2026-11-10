@@ -111,8 +111,16 @@ def request_question(
 def print_result(data: dict[str, Any], full_evidence: bool) -> None:
     print("\n" + "=" * 80)
     print(f"请求 ID: {data.get('request_id', '')}")
+    print(f"耗时: {float(data.get('elapsed_ms', 0)):.2f} ms")
     print(f"检索证据数: {data.get('retrieval_count', 0)}")
     print(f"是否降级: {data.get('is_degraded', False)}")
+    grounding = data.get("grounding") or {}
+    print(
+        "事实级引用: "
+        f"{grounding.get('cited_claim_count', 0)}/"
+        f"{grounding.get('claim_count', 0)} "
+        f"({float(grounding.get('citation_validity_rate') or 0) * 100:.2f}%)"
+    )
     print("\n回答:")
     print(data.get("answer", ""))
 

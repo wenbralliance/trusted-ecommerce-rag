@@ -7,6 +7,7 @@ import asyncio
 import json
 import math
 import os
+import random
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -23,6 +24,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT_DIR = (
     PROJECT_ROOT / "data" / "ecommerce" / "shoppingcomp" / "ragas_eval"
 )
+
+
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return [
         json.loads(line)
@@ -82,7 +85,7 @@ def _score_samples(
     }
 
 
-def split_response(text: str, max_chars: int = 220) -> list[str]:
+def split_response(text: str, max_chars: int = 140) -> list[str]:
     parts = [
         part.strip()
         for part in re.split(r"(?<=[。！？!?；;])\s*", text)
@@ -104,22 +107,40 @@ def split_response(text: str, max_chars: int = 220) -> list[str]:
 async def score_faithfulness(
     sample: dict[str, Any],
     llm: Any,
+    max_chars: int = 140,
+    retries: int = 2,
 ) -> dict[str, Any]:
     metric = Faithfulness(llm)
-    segments = split_response(sample["answer"])
+    segments = split_response(sample["answer"], max_chars=max_chars)
     values: list[float] = []
     weights: list[int] = []
+
     async def score_segment(segment: str) -> dict[str, Any]:
-        try:
-            result = await metric.ascore(
-                user_input=sample["question"],
-                response=segment,
-                retrieved_contexts=sample["retrieved_contexts"],
-            )
-            value = float(result.value)
-            return {"segment": segment, "score": value, "error": None}
-        except Exception as exc:
-            return {"segment": segment, "score": None, "error": str(exc)}
+        last_error = ""
+        for attempt in range(retries + 1):
+            try:
+                result = await metric.ascore(
+                    user_input=sample["question"],
+                    response=segment,
+                    retrieved_contexts=sample["retrieved_contexts"],
+                )
+                value = float(result.value)
+                return {
+                    "segment": segment,
+                    "score": value,
+                    "error": None,
+                    "attempts": attempt + 1,
+                }
+            except Exception as exc:
+                last_error = str(exc)
+                if attempt < retries:
+                    await asyncio.sleep(1.5**attempt)
+        return {
+            "segment": segment,
+            "score": None,
+            "error": last_error,
+            "attempts": retries + 1,
+        }
 
     segment_results = list(
         await asyncio.gather(*(score_segment(segment) for segment in segments))
@@ -166,6 +187,8 @@ async def run_evaluation(
     evaluator: Any,
     embeddings: Any,
     workers: int,
+    segment_chars: int,
+    retries: int,
 ) -> dict[str, Any]:
     del dataset_rows  # Samples contain every required field and audit metadata.
     semaphore = asyncio.Semaphore(max(1, workers))
@@ -175,7 +198,10 @@ async def run_evaluation(
             row: dict[str, Any] = {"question_id": sample["question_id"]}
             if "faithfulness" in metric_names:
                 row["faithfulness_result"] = await score_faithfulness(
-                    sample, evaluator
+                    sample,
+                    evaluator,
+                    max_chars=segment_chars,
+                    retries=retries,
                 )
             if "answer_relevancy" in metric_names:
                 row["answer_relevancy_result"] = await score_answer_relevancy(
@@ -206,6 +232,27 @@ async def run_evaluation(
     }
 
 
+def bootstrap_mean_ci(
+    values: list[float],
+    *,
+    seed: int = 20261110,
+    iterations: int = 5000,
+) -> dict[str, float] | None:
+    if not values:
+        return None
+    rng = random.Random(seed)
+    samples = sorted(
+        sum(rng.choice(values) for _ in values) / len(values)
+        for _ in range(iterations)
+    )
+    lower_index = max(0, int(iterations * 0.025) - 1)
+    upper_index = min(iterations - 1, int(iterations * 0.975))
+    return {
+        "lower": samples[lower_index],
+        "upper": samples[upper_index],
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input-dir", type=Path, default=DEFAULT_INPUT_DIR)
@@ -215,6 +262,35 @@ def main() -> None:
     )
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument(
+        "--samples",
+        type=Path,
+        default=None,
+        help="样本 JSONL；默认读取 input-dir/samples.jsonl",
+    )
+    parser.add_argument(
+        "--dataset",
+        type=Path,
+        default=None,
+        help="Ragas 数据集 JSONL；仅用于校验样本规模",
+    )
+    parser.add_argument(
+        "--output-prefix",
+        default="",
+        help="输出文件前缀，例如 improved_",
+    )
+    parser.add_argument(
+        "--segment-chars",
+        type=int,
+        default=140,
+        help="忠实度评分前每个片段的最大字符数",
+    )
+    parser.add_argument(
+        "--retries",
+        type=int,
+        default=2,
+        help="单个片段评分失败后的重试次数",
+    )
     args = parser.parse_args()
 
     load_dotenv(PROJECT_ROOT / ".env")
@@ -226,8 +302,10 @@ def main() -> None:
     unknown = set(metric_names) - {"faithfulness", "answer_relevancy"}
     if unknown:
         raise ValueError(f"Unknown metrics: {sorted(unknown)}")
-    dataset_rows = read_jsonl(args.input_dir / "ragas_dataset.jsonl")
-    samples = read_jsonl(args.input_dir / "samples.jsonl")
+    samples_path = args.samples or args.input_dir / "samples.jsonl"
+    dataset_path = args.dataset or args.input_dir / "ragas_dataset.jsonl"
+    dataset_rows = read_jsonl(dataset_path)
+    samples = read_jsonl(samples_path)
     if args.limit is not None:
         if args.limit <= 0:
             raise ValueError("limit must be positive")
@@ -235,6 +313,12 @@ def main() -> None:
         samples = samples[: args.limit]
     if not dataset_rows:
         raise ValueError("Ragas dataset is empty")
+    if not samples:
+        raise ValueError("Ragas samples are empty")
+    if args.segment_chars < 40:
+        raise ValueError("segment-chars must be at least 40")
+    if args.retries < 0:
+        raise ValueError("retries cannot be negative")
 
     evaluator = llm_factory(
         os.getenv("RAGAS_EVALUATOR_MODEL", "deepseek-flash"),
@@ -262,9 +346,13 @@ def main() -> None:
             evaluator,
             embeddings,
             args.workers,
+            args.segment_chars,
+            args.retries,
         )
     )
-    (args.input_dir / "ragas_scores.json").write_text(
+    output_dir = args.input_dir
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / f"{args.output_prefix}ragas_scores.json").write_text(
         json.dumps(score_data, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
@@ -279,10 +367,28 @@ def main() -> None:
         metric_summary["faithfulness"] = (
             sum(scored) / len(scored) if scored else None
         )
+        metric_summary["faithfulness_ci95"] = bootstrap_mean_ci(scored)
         metric_summary["faithfulness_scored_samples"] = len(scored)
+        metric_summary["faithfulness_sample_coverage"] = (
+            len(scored) / len(score_data["faithfulness"])
+            if score_data["faithfulness"]
+            else None
+        )
+        metric_summary["faithfulness_scored_segments"] = sum(
+            row["scored_segments"] for row in score_data["faithfulness"]
+        )
+        metric_summary["faithfulness_total_segments"] = sum(
+            row["total_segments"] for row in score_data["faithfulness"]
+        )
         metric_summary["faithfulness_segment_errors"] = sum(
             row["total_segments"] - row["scored_segments"]
             for row in score_data["faithfulness"]
+        )
+        metric_summary["faithfulness_segment_coverage"] = (
+            metric_summary["faithfulness_scored_segments"]
+            / metric_summary["faithfulness_total_segments"]
+            if metric_summary["faithfulness_total_segments"]
+            else None
         )
     if score_data["answer_relevancy"]:
         scored = [
@@ -293,7 +399,13 @@ def main() -> None:
         metric_summary["answer_relevancy"] = (
             sum(scored) / len(scored) if scored else None
         )
+        metric_summary["answer_relevancy_ci95"] = bootstrap_mean_ci(scored)
         metric_summary["answer_relevancy_scored_samples"] = len(scored)
+        metric_summary["answer_relevancy_sample_coverage"] = (
+            len(scored) / len(score_data["answer_relevancy"])
+            if score_data["answer_relevancy"]
+            else None
+        )
     if "faithfulness" in metric_summary:
         metric_summary["unsupported_claim_rate_proxy"] = (
             1 - metric_summary["faithfulness"]
@@ -303,12 +415,15 @@ def main() -> None:
 
     report = {
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "source": str(args.input_dir),
-        "sample_count": len(dataset_rows),
+        "source": str(samples_path),
+        "sample_count": len(samples),
         "metrics": metric_names,
         "evaluator_model": os.getenv("RAGAS_EVALUATOR_MODEL", "deepseek-flash"),
         "metric_mode": {
-            "faithfulness": "sentence-segmented, character-weighted aggregation",
+            "faithfulness": (
+                "sentence-segmented, character-weighted aggregation; "
+                f"max {args.segment_chars} chars per segment"
+            ),
             "answer_relevancy": "whole response",
         },
         "ragas_summary": metric_summary,
@@ -320,7 +435,7 @@ def main() -> None:
             "faithfulness is aggregated from sentence-level Ragas scores to avoid long-output truncation",
         ],
     }
-    (args.input_dir / "ragas_report.json").write_text(
+    (output_dir / f"{args.output_prefix}ragas_report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )

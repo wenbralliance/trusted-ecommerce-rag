@@ -1,5 +1,6 @@
 import json
 import logging
+import time
 import uuid
 from typing import Any
 
@@ -11,6 +12,7 @@ from rag.api.schemas import (
     ChatRequest,
     ChatResponse,
     CitationItem,
+    GroundingMetrics,
     HealthResponse,
 )
 from rag.config import COLLECTION_NAME, milvus_client
@@ -69,6 +71,7 @@ def _parse_citations(
 
 @router.post("/chat", response_model=ChatResponse, summary="Agentic RAG 对话接口")
 async def chat_endpoint(req: ChatRequest, response: Response):
+    started_at = time.perf_counter()
     request_id = uuid.uuid4().hex
     response.headers["X-Request-ID"] = request_id
 
@@ -119,6 +122,7 @@ async def chat_endpoint(req: ChatRequest, response: Response):
         return ChatResponse(
             request_id=request_id,
             answer=content,
+            elapsed_ms=(time.perf_counter() - started_at) * 1000,
             retrieval_count=retrieval_count,
             is_degraded=bool(alerts),
             alerts=list(dict.fromkeys(alerts)),
@@ -142,12 +146,21 @@ async def chat_endpoint(req: ChatRequest, response: Response):
     answer = str(data.get("answer", "")).strip()
     if not answer:
         alerts.append("模型返回了空答案。")
+    try:
+        grounding = GroundingMetrics.model_validate(
+            data.get("grounding") or {}
+        )
+    except ValidationError:
+        grounding = GroundingMetrics()
+        alerts.append("事实级引用统计格式无效，已返回默认值。")
 
     return ChatResponse(
         request_id=request_id,
         answer=answer,
+        elapsed_ms=(time.perf_counter() - started_at) * 1000,
         verified_citations=verified,
         unverified_citations=unverified,
+        grounding=grounding,
         retrieval_count=retrieval_count,
         is_degraded=bool(alerts),
         alerts=list(dict.fromkeys(alerts)),

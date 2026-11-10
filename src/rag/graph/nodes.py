@@ -10,8 +10,18 @@ from langchain_core.messages import (
 )
 from pydantic import BaseModel, Field
 
-from rag.config import MAX_RETRIES, RETRIEVAL_TOP_K, llm
+from rag.config import (
+    ENABLE_GROUNDED_GENERATION,
+    MAX_RETRIES,
+    RETRIEVAL_TOP_K,
+    llm,
+)
 from rag.graph.state import AgentState
+from rag.graph.grounding import (
+    EvidenceClaim,
+    GroundedAnswer,
+    generate_grounded_answer,
+)
 from rag.prompt.prompt_template import (
     generate_prompt,
     grade_prompt,
@@ -47,6 +57,10 @@ class AnswerWithCitations(BaseModel):
 
 generator_llm = llm.with_structured_output(
     AnswerWithCitations,
+    method="json_mode",
+)
+grounded_generator_llm = llm.with_structured_output(
+    GroundedAnswer,
     method="json_mode",
 )
 
@@ -183,6 +197,13 @@ def _citation_payload(
     }
 
 
+def _last_user_question(state: AgentState) -> str:
+    for message in reversed(state["messages"]):
+        if isinstance(message, HumanMessage):
+            return str(message.content).strip()
+    return ""
+
+
 async def generate_node(state: AgentState):
     if state.get("retry_count", 0) >= MAX_RETRIES:
         return {
@@ -206,10 +227,6 @@ async def generate_node(state: AgentState):
             ],
         }
 
-    response = await generator_llm.ainvoke(
-        [SystemMessage(content=generate_prompt), *state["messages"]]
-    )
-
     sources_by_id = {
         (source.get("document_id", ""), source.get("chunk_id", "")): source
         for source in state.get("retrieved_sources", [])
@@ -219,29 +236,110 @@ async def generate_node(state: AgentState):
     alerts: list[str] = []
     seen_citations: set[tuple[str, str]] = set()
 
-    for citation in response.citations:
-        key = (citation.document_id.strip(), citation.chunk_id.strip())
-        if not all(key) or key in seen_citations:
-            continue
-        seen_citations.add(key)
-
-        source = sources_by_id.get(key)
-        payload = _citation_payload(citation, source)
-        if source is None:
-            unverified.append(payload)
-            continue
-
-        verified.append(payload)
-        if payload["source_status"] != "provided":
-            alerts.append(
-                f"引用 {key[1]} 缺少可用的来源 URL，请人工复核。"
+    if ENABLE_GROUNDED_GENERATION:
+        question = _last_user_question(state)
+        sources = state.get("retrieved_sources", [])
+        if not question or not sources:
+            answer = (
+                "抱歉，当前知识库中的证据不足以可靠回答这个问题。"
+                "建议补充更具体的商品信息，或联系人工客服。"
             )
+            grounding = {
+                "claim_count": 0,
+                "cited_claim_count": 0,
+                "citation_validity_rate": None,
+                "missing_information_count": 0,
+            }
+        else:
+            response, citation_indexes, grounding_summary = (
+                await generate_grounded_answer(
+                    question,
+                    sources,
+                    grounded_generator_llm.ainvoke,
+                )
+            )
+            answer = response.answer.strip()
+            if not answer:
+                answer = "\n".join(
+                    claim.text.strip()
+                    for claim in response.claims
+                    if claim.text.strip()
+                )
+            if not answer:
+                answer = "根据现有证据，无法可靠回答该问题。"
+            grounding = grounding_summary.as_dict()
+            if grounding_summary.claim_count == 0:
+                alerts.append(
+                    "模型未返回可核验的事实清单，回答缺少事实级引用。"
+                )
+            if (
+                grounding_summary.citation_validity_rate is not None
+                and grounding_summary.citation_validity_rate < 1
+            ):
+                invalid_count = (
+                    grounding_summary.claim_count
+                    - grounding_summary.cited_claim_count
+                )
+                alerts.append(
+                    f"有 {invalid_count} 条事实未给出有效证据编号，"
+                    "请人工复核。"
+                )
+
+            for index in citation_indexes:
+                source = sources[index]
+                key = (
+                    str(source.get("document_id", "")).strip(),
+                    str(source.get("chunk_id", "")).strip(),
+                )
+                if not all(key) or key in seen_citations:
+                    continue
+                seen_citations.add(key)
+                payload = _citation_payload(
+                    Citation(document_id=key[0], chunk_id=key[1]),
+                    source,
+                )
+                verified.append(payload)
+                if payload["source_status"] != "provided":
+                    alerts.append(
+                        f"引用 {key[1]} 缺少可用的来源 URL，请人工复核。"
+                    )
+    else:
+        response = await generator_llm.ainvoke(
+            [SystemMessage(content=generate_prompt), *state["messages"]]
+        )
+        answer = response.answer.strip()
+        grounding = {
+            "claim_count": len(response.citations),
+            "cited_claim_count": len(response.citations),
+            "citation_validity_rate": (
+                1.0 if response.citations else None
+            ),
+            "missing_information_count": 0,
+        }
+        for citation in response.citations:
+            key = (citation.document_id.strip(), citation.chunk_id.strip())
+            if not all(key) or key in seen_citations:
+                continue
+            seen_citations.add(key)
+
+            source = sources_by_id.get(key)
+            payload = _citation_payload(citation, source)
+            if source is None:
+                unverified.append(payload)
+                continue
+
+            verified.append(payload)
+            if payload["source_status"] != "provided":
+                alerts.append(
+                    f"引用 {key[1]} 缺少可用的来源 URL，请人工复核。"
+                )
 
     final_content = json.dumps(
         {
-            "answer": response.answer.strip(),
+            "answer": answer,
             "verified_citations": verified,
             "unverified_citations": unverified,
+            "grounding": grounding,
         },
         ensure_ascii=False,
     )

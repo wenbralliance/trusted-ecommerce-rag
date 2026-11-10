@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-11-10T05:18:02.390989+00:00",
+  "experiment": "claim_first_grounded_generation_v1",
+  "source_samples": "C:\\Users\\文肇乐\\Desktop\\RAG\\data\\ecommerce\\shoppingcomp\\ragas_eval\\samples.jsonl",
+  "source_samples_sha256": "232cd1fc9211331860a681f97c1a66f3f7d3116c1274aca5e0df4d9fe5d6c66d",
+  "sample_count": 10,
+  "model": "deepseek-flash",
+  "controlled_variable": "Both variants use the exact same question, retrieved contexts, reference answer and citation set.",
+  "outputs": {
+    "baseline": "baseline_samples.jsonl",
+    "candidate": "candidate_samples.jsonl"
+  }
+}

@@ -6,9 +6,22 @@
 
 - 已导入 ShoppingComp 中文电商数据：97 条购物问题、48 条安全题、236 个商品、1190 条商品证据。
 - Milvus 使用商品级证据去重、元数据过滤和可选的商品级重排。
-- 完整自动化测试当前为 **16 项全部通过**，包含真实 Milvus、向量模型、重排模型和智能体端到端流程。
-- 20 条抽样、前 20 个文本块、前 5 个商品条件下：无重排的商品召回率为 **77.25%**，商品级重排后为 **83.17%**。
-- 当前只完成了检索层评测；答案选择准确率、幻觉率和安全通过率仍需运行完整的 ShoppingCompJudge。
+- 默认离线测试当前为 **19 项通过、2 项外部集成测试跳过**；连接真实 Milvus 和模型后，完整套件为 **21 项全部通过**。
+- 20 条抽样、前 20 个文本块、前 5 个商品条件下：无重排的商品召回率为 **77.25%**，商品级重排后为 **83.17%**，提升 **5.92 个百分点**。
+- 在相同问题和相同检索上下文的 10 题配对评测中，事实级证据生成把 RAGAS 忠实度从 **77.61%** 提升到 **94.80%**，提升 **17.20 个百分点**；回答相关性下降 **11.34 个百分点**，这是当前已量化但仍需继续优化的取舍。
+- 连接真实 Milvus 后的 10 条端到端复测中，当前完整链路忠实度为 **84.58%**、回答相关性为 **55.23%**，41/41 个忠实度片段完成评分；该绝对结果使用实时检索上下文，不与固定上下文实验直接相减。
+- 完整 ShoppingCompJudge、97 条购物题和 48 条安全题的 SoP、Scenario Coverage、Rationale Validity 与 Safety Pass Rate 尚未运行。
+
+### 稳定版本边界
+
+当前发布版本采用已验证的事实级证据生成：
+
+- 固定检索上下文配对测试：忠实度 77.61% → 94.80%。
+- 真实 Milvus 端到端测试：忠实度 84.58%，回答相关性 55.23%。
+- 回答正文禁止泄漏 `E1/E2` 等内部证据编号。
+- 未验证引用率保持 0.00%。
+
+结构化 AnswerPlan、二次答案规划和额外证据筛选经过离线实验，但未达到“相关性提升且忠实度不回退”的验收线，因此**没有进入稳定生成链路**。当前已知的剩余问题是回答偏保守，存在列出证据但缺少明确首选、最终推荐的情况；后续优化应单独验收后再启用。
 
 适用场景：商品规格问答、购买需求匹配、跨商品比较、有限约束推荐和商品安全提醒。
 
@@ -19,6 +32,7 @@
 - **智能体式 RAG**：由 LangGraph 编排智能体、检索、文档评分、查询改写和答案生成流程。
 - **混合检索**：使用 Milvus 同时执行稠密向量检索和 BM25 稀疏检索，并通过 `RRFRanker` 融合结果。
 - **商品级重排**：先将文本块按商品去重，再使用 Qwen 重排模型对唯一商品重新排序；可通过 `ENABLE_RERANK` 开关启用，异常时回退到商品级倒数排名融合排序。
+- **事实级证据生成**：先抽取带 `E1..En` 证据编号的原子事实，再从有效证据引用生成答案；API 返回事实数、有效引用事实数和引用有效率，降低“引用 ID 合法但具体陈述无依据”的风险。
 - **Self-RAG 重试**：文档相关性评分不通过时自动改写查询；达到 `MAX_RETRIES` 后停止重试，避免无限循环。
 - **引用后验校验**：检查模型返回的 `document_id` 和 `chunk_id` 是否同时存在于检索结果中，并分别返回 `verified_citations` 和 `unverified_citations`。
 - **可审计来源元数据**：检索正文不包含网址；规范化来源地址、域名和来源等级保存在独立字段中。
@@ -37,7 +51,7 @@ flowchart LR
     E --> F[商品去重]
     F --> J[可选商品级重排]
     J --> G[文档相关性评分]
-    G -->|相关| H[生成答案并校验引用]
+    G -->|相关| H[事实级证据生成并校验引用]
     G -->|不相关且可重试| I[改写查询]
     I --> C
     H --> B
@@ -122,6 +136,7 @@ cp .env.example .env
 | `LLM_BASE_URL` | 否 | OpenAI 兼容模型服务地址；不填时使用 DeepSeek 默认地址 |
 | `LLM_MODEL` | 否 | 模型名称，示例配置为 `deepseek-chat` |
 | `MAX_RETRIES` | 否 | 最大检索重试次数；示例配置为 `2` |
+| `ENABLE_GROUNDED_GENERATION` | 否 | 是否启用事实级证据生成，默认 `true` |
 | `TOP_N` | 否 | 关闭重排时保留的文本块数量，默认 `3` |
 | `RETRIEVAL_TOP_K` | 否 | RRF 混合检索候选数量，默认 `20` |
 | `RERANK_TOP_PRODUCTS` | 否 | 重排后保留的唯一商品数量，默认 `5` |
@@ -218,18 +233,43 @@ $env:RAGAS_DO_NOT_TRACK = "true"
 
 评测数据与报告写入 `data/ecommerce/shoppingcomp/ragas_eval/`。参考回答由大模型基于标准商品证据生成，当前标记为**未人工审核**；报告中会保留这一限制。
 
-当前 10 条抽样结果：
+当前 10 条配对实验结果使用相同问题、检索上下文、参考回答、裁判模型和分段策略，唯一变化是回答生成流程：
 
-| 指标 | 结果 |
-| --- | ---: |
-| 答案忠实度（Faithfulness） | **78.15%** |
-| 回答相关性（Answer Relevancy） | **57.76%** |
-| 无依据陈述率代理值 | 21.85% |
-| 商品精确率 | 44.44% |
-| 商品召回率 | 94.12% |
-| 未验证引用率 | 0.00% |
+| 指标 | 旧生成流程 | 事实级证据生成 | 配对增量 | 95% 配对 Bootstrap CI |
+| --- | ---: | ---: | ---: | ---: |
+| 忠实度 | 77.61% | **94.80%** | **+17.20 pp** | +8.04 至 +26.53 pp |
+| 无依据陈述率代理值 | 22.39% | **5.20%** | **-17.20 pp** | 由忠实度互补得到 |
+| 回答相关性 | **55.07%** | 43.74% | -11.34 pp | -26.43 至 -0.13 pp |
+| 商品精确率 | 44.44% | 44.44% | 0.00 pp | 检索上下文受控相同 |
+| 商品召回率 | 94.12% | 94.12% | 0.00 pp | 检索上下文受控相同 |
+| 未验证引用率 | 0.00% | 0.00% | 0.00 pp | 68/68 条引用 ID 有效 |
 
-答案忠实度采用按回答片段分段评分、再按字符数加权的聚合方式；10 条样本中有 3 个片段因裁判模型输出词元上限未完成，不能把这些片段当作 0 分处理。回答相关性用于判断整段回答是否回应用户问题。结果不是人工验收，也不是通用的“幻觉率”。
+忠实度配对结果为 9 题提升、0 题持平、1 题下降，双侧符号检验 `p=0.0215`；两版均完成 100% 的样本和回答片段评分。回答相关性下降是明确的生产风险：事实级生成更短、更接近证据清单，可能遗漏用户期望的完整比较。后续应优先优化“结论先行的事实重排”，而不是放宽证据门槛。
+
+复现实验：
+
+```powershell
+.venv\Scripts\python.exe tests\benchmark_grounded_answers.py --workers 2
+$env:RAGAS_DO_NOT_TRACK = "true"
+.venv-ragas\Scripts\python.exe tests\evaluate_ragas.py `
+  --input-dir data\ecommerce\shoppingcomp\evaluation\groundedness `
+  --samples data\ecommerce\shoppingcomp\evaluation\groundedness\baseline_samples.jsonl `
+  --dataset data\ecommerce\shoppingcomp\evaluation\groundedness\baseline_dataset.jsonl `
+  --output-prefix baseline_ --workers 4
+.venv-ragas\Scripts\python.exe tests\evaluate_ragas.py `
+  --input-dir data\ecommerce\shoppingcomp\evaluation\groundedness `
+  --samples data\ecommerce\shoppingcomp\evaluation\groundedness\candidate_samples.jsonl `
+  --dataset data\ecommerce\shoppingcomp\evaluation\groundedness\candidate_dataset.jsonl `
+  --output-prefix candidate_ --workers 4
+.venv\Scripts\python.exe tests\compare_ragas_runs.py `
+  --baseline data\ecommerce\shoppingcomp\evaluation\groundedness\baseline_ragas_scores.json `
+  --candidate data\ecommerce\shoppingcomp\evaluation\groundedness\candidate_ragas_scores.json `
+  --output data\ecommerce\shoppingcomp\evaluation\groundedness\comparison_report.json
+```
+
+完整数值、逐题结果与限制见 `data/ecommerce/shoppingcomp/evaluation/BENCHMARK.md` 和 `data/ecommerce/shoppingcomp/evaluation/groundedness/comparison_report.json`。参考回答仍由大模型基于标准证据生成且未人工审核；RAGAS 是 LLM-as-a-judge，不应把“无依据陈述率代理值”解释为通用幻觉率。
+
+真实 Milvus 端到端复测使用 `live_ragas_20261110/` 中的独立样本，避免覆盖旧基线。它用于验证当前生产链路，不能与“相同检索上下文”实验直接相减。
 
 ## 快速开始
 
@@ -530,6 +570,7 @@ uv run python tests\ask_single_question.py "索尼α6700是否支持4K视频？"
 ```json
 {
   "request_id": "bf2cda0346f74ba4a62359187f5c69bb",
+  "elapsed_ms": 842.31,
   "answer": "根据知识库内容生成的回答。",
   "verified_citations": [
     {
@@ -548,6 +589,12 @@ uv run python tests\ask_single_question.py "索尼α6700是否支持4K视频？"
     }
   ],
   "unverified_citations": [],
+  "grounding": {
+    "claim_count": 6,
+    "cited_claim_count": 6,
+    "citation_validity_rate": 1.0,
+    "missing_information_count": 1
+  },
   "retrieval_count": 5,
   "is_degraded": false,
   "alerts": []
@@ -559,9 +606,11 @@ uv run python tests\ask_single_question.py "索尼α6700是否支持4K视频？"
 | 字段 | 说明 |
 | --- | --- |
 | `request_id` | 请求追踪 ID，同时写入响应头 `X-Request-ID` |
+| `elapsed_ms` | 服务端从接收请求到构造响应的总耗时，单位毫秒 |
 | `answer` | 最终答案 |
 | `verified_citations` | 文档 ID 和块 ID 同时匹配检索结果的引用，并附带来源元数据和检索原文 |
 | `unverified_citations` | 未通过后验校验的模型引用 |
+| `grounding` | 原子事实数、带有效证据编号的事实数、事实级引用有效率和证据缺口数 |
 | `retrieval_count` | 本次请求最终保留的去重证据数量 |
 | `is_degraded` | 是否发生降级、来源缺失或输出异常 |
 | `alerts` | 重排、检索、来源或输出格式相关告警 |
@@ -572,6 +621,7 @@ uv run python tests\ask_single_question.py "索尼α6700是否支持4K视频？"
 - `verified_citations` 只包含模型最终实际引用的来源，因此数量可能小于 `retrieval_count`。
 - `source_url` 是首选来源，`source_urls` 保存该证据块关联的全部规范化 URL；`source_url` 不保证逐条支持答案中的所有结论。
 - `verified_citations` 只证明引用 ID 来自本次检索结果，不证明答案中的每项陈述都已被引用原文蕴含。
+- `grounding.citation_validity_rate=1.0` 只说明每条事实都给出了本次证据集合中的有效编号，不替代独立的语义蕴含或人工审核；忠实度必须通过 RAGAS 等离线评测衡量。
 - 参数校验失败返回 `422`；智能体内部异常返回 `500` 和 `request_id`；集合未就绪时健康检查返回 `503`。
 
 ## 测试
@@ -582,19 +632,28 @@ uv run python tests\ask_single_question.py "索尼α6700是否支持4K视频？"
 uv run pytest -q tests\test_data_pipeline.py
 ```
 
-完整测试：
+默认离线测试：
 
 ```powershell
 uv run pytest -q
 ```
 
-当前完整套件结果为 **16 项全部通过**。`tests/test_search.py` 和 `tests/test_agent_flow.py` 依赖真实的 Milvus 数据以及外部向量模型、大模型和重排服务，需要先完成入库和 `.env` 配置。
+默认结果为 **19 项通过、2 项集成测试跳过**。`tests/test_search.py` 和 `tests/test_agent_flow.py` 依赖真实的 Milvus 数据以及外部向量模型、大模型和重排服务，需要先完成入库和 `.env` 配置，再显式运行：
+
+```powershell
+$env:RUN_INTEGRATION_TESTS = "1"
+uv run pytest -q -m integration
+```
+
+2026-11-10 连接真实 Milvus `rag_docs`（1,190 条证据）后，完整套件结果为 **21 项全部通过、0 项跳过**。
 
 测试覆盖：
 
 - `tests/test_data_pipeline.py`：URL 清洗、过滤表达式、数据完整性和 OpenAPI 字段。
 - `tests/test_reranker.py`：商品聚合、商品级去重、重排地址推导和失败回退。
 - `tests/test_citation_pipeline.py`：检索节点、引用校验、API 返回和 LangGraph 状态。
+- `tests/test_grounding.py`：证据编号规范化、事实级引用派生和有效率统计。
+- `tests/test_evaluation_metrics.py`：商品级 nDCG、AP 和排序质量指标。
 - `tests/test_search.py`：验证 Milvus 混合检索能召回预期商品。
 - `tests/test_agent_flow.py`：执行从用户问题到最终答案的智能体端到端流程。
 
@@ -604,7 +663,7 @@ uv run pytest -q
 uv run python tests\evaluate_retrieval.py --top-k 20 --top-products 5 --limit 20
 ```
 
-报告默认同时运行 `no-rerank` 和 `rerank` 两种模式，包含候选商品命中率、重排后的商品精确率、召回率、F1、平均倒数排名以及重排告警数。该脚本需要真实向量模型、重排服务和已入库的 Milvus 集合；报告写入 `data/ecommerce/shoppingcomp/evaluation/retrieval_report.json`。
+报告默认同时运行 `no-rerank` 和 `rerank` 两种模式，包含候选商品命中率、商品精确率、召回率、F1、MRR、nDCG@5、AP@5、95% Bootstrap 置信区间、配对增量、检索与重排的均值/P50/P95 延迟以及重排告警数。该脚本需要真实向量模型、重排服务和已入库的 Milvus 集合；报告写入 `data/ecommerce/shoppingcomp/evaluation/retrieval_report.json`。
 
 只运行一种模式：
 
@@ -615,10 +674,12 @@ uv run python tests\evaluate_retrieval.py --mode rerank
 
 当前 20 条抽样、前 20 个文本块、最终前 5 个商品的对比结果：
 
-| 模式 | 命中率 | 精确率 | 召回率 | F1 | 平均倒数排名 |
+| 模式 | 精确率 | 召回率 | F1 | MRR | nDCG@5 |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 商品去重，无 Rerank | 90.00% | 35.00% | 77.25% | 43.26% | 69.58% |
-| 商品级 Rerank | **90.00%** | **40.00%** | **83.17%** | **48.62%** | **90.00%** |
+| 商品去重，无 Rerank | 35.00% | 77.25% | 43.26% | 69.17% | 66.24% |
+| 商品级 Rerank | **40.00%** | **83.17%** | **48.62%** | **90.00%** | **86.69%** |
+
+重排相对无重排的配对增量：召回率 **+5.92 pp**（95% CI +1.00 至 +11.83），nDCG@5 **+20.45 pp**（95% CI +11.21 至 +30.23）。20 题中没有一题下降，召回率提升为 4 题提升、16 题持平。Qwen 重排平均耗时 **340.94 ms**，P95 为 **391.35 ms**，20 题均无重排告警。
 
 必须保持候选数量、最终商品数量和评测问题完全一致，才能比较 Rerank 前后指标。
 

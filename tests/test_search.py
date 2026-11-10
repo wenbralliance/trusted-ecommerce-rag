@@ -1,7 +1,18 @@
 import os
+
+import pytest
 from dotenv import load_dotenv
 from openai import OpenAI
 from pymilvus import MilvusClient, AnnSearchRequest, RRFRanker
+
+pytestmark = pytest.mark.integration
+
+if os.getenv("RUN_INTEGRATION_TESTS") != "1":
+    pytest.skip(
+        "Set RUN_INTEGRATION_TESTS=1 with Milvus and model services running.",
+        allow_module_level=True,
+    )
+
 from rag.config import COLLECTION_NAME
 
 # 注意：这里的路径是从项目根目录运行的，所以可以直接找到 .env

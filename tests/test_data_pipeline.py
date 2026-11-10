@@ -72,5 +72,6 @@ def test_openapi_exposes_metadata_filter_and_trace_fields():
     assert "filters" in chat_schema["properties"]
     assert "request_id" in response_schema["properties"]
     assert "retrieval_count" in response_schema["properties"]
+    assert "grounding" in response_schema["properties"]
     assert "source_urls" in citation_schema["properties"]
     assert "evidence" in citation_schema["properties"]

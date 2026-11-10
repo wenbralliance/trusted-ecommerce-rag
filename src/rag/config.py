@@ -28,6 +28,9 @@ llm = ChatDeepSeek(
 
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
 ENABLE_RERANK = os.getenv("ENABLE_RERANK", "False").lower() == "true"
+ENABLE_GROUNDED_GENERATION = (
+    os.getenv("ENABLE_GROUNDED_GENERATION", "True").lower() == "true"
+)
 TOP_N = int(os.getenv("TOP_N", "3"))
 RETRIEVAL_TOP_K = int(os.getenv("RETRIEVAL_TOP_K", "20"))
 RERANK_TOP_PRODUCTS = int(os.getenv("RERANK_TOP_PRODUCTS", "5"))

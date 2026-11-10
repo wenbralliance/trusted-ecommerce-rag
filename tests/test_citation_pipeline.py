@@ -94,13 +94,56 @@ async def test_generate_node_enriches_verified_citation_and_marks_hallucination(
 
     generator = AsyncMock()
     generator.ainvoke.return_value = response
-    with patch("rag.graph.nodes.generator_llm", new=generator):
+    with (
+        patch("rag.graph.nodes.generator_llm", new=generator),
+        patch("rag.graph.nodes.ENABLE_GROUNDED_GENERATION", False),
+    ):
         result = await nodes.generate_node(state)
 
     payload = json.loads(result["messages"][0].content)
     assert payload["verified_citations"][0]["source_url"] == "https://example.com"
     assert payload["verified_citations"][0]["evidence"] == "Supporting evidence"
     assert payload["unverified_citations"][0]["chunk_id"] == "fake-chunk"
+
+
+@pytest.mark.asyncio
+async def test_grounded_generation_rejects_unknown_evidence_ids():
+    response = nodes.GroundedAnswer(
+        answer="Unsupported claim.",
+        claims=[
+            nodes.EvidenceClaim(
+                text="Unsupported claim.",
+                evidence_ids=["E99"],
+            )
+        ],
+    )
+    state = {
+        "messages": [HumanMessage(content="Question")],
+        "retry_count": 0,
+        "filters": {},
+        "retrieved_sources": [
+            {
+                "document_id": "doc-1",
+                "chunk_id": "chunk-1",
+                "title": "Example",
+                "text": "Evidence",
+            }
+        ],
+        "retrieval_alerts": [],
+    }
+    grounded_generator = AsyncMock()
+    grounded_generator.ainvoke.return_value = response
+
+    with patch(
+        "rag.graph.nodes.grounded_generator_llm",
+        new=grounded_generator,
+    ):
+        result = await nodes.generate_node(state)
+
+    payload = json.loads(result["messages"][0].content)
+    assert payload["verified_citations"] == []
+    assert payload["grounding"]["citation_validity_rate"] == 0.0
+    assert "1 条事实未给出有效证据编号" in result["retrieval_alerts"][0]
 
 
 def test_chat_endpoint_formats_traceable_response_and_request_id():
@@ -150,6 +193,7 @@ def test_chat_endpoint_formats_traceable_response_and_request_id():
     assert response.status_code == 200
     payload = response.json()
     assert payload["request_id"]
+    assert payload["elapsed_ms"] >= 0
     assert response.headers["X-Request-ID"] == payload["request_id"]
     assert payload["verified_citations"][0]["source_url"] == "https://example.com"
     assert payload["retrieval_count"] == 1
@@ -176,6 +220,16 @@ async def test_compiled_graph_runs_without_preinitialized_list_state():
         answer="支持4K。",
         citations=[nodes.Citation(document_id="doc-1", chunk_id="chunk-1")],
     )
+    grounded_generator = AsyncMock()
+    grounded_generator.ainvoke.return_value = nodes.GroundedAnswer(
+        answer="支持4K。",
+        claims=[
+            nodes.EvidenceClaim(
+                text="支持4K。",
+                evidence_ids=["E1"],
+            )
+        ],
+    )
     bundle = RetrievalBundle(
         content="[证据 1]",
         sources=[
@@ -198,6 +252,10 @@ async def test_compiled_graph_runs_without_preinitialized_list_state():
         patch("rag.graph.nodes.grader_llm", new=grader_model),
         patch("rag.graph.nodes.generator_llm", new=generator),
         patch(
+            "rag.graph.nodes.grounded_generator_llm",
+            new=grounded_generator,
+        ),
+        patch(
             "rag.graph.nodes.search_and_format",
             new=AsyncMock(return_value=bundle),
         ),
@@ -209,3 +267,4 @@ async def test_compiled_graph_runs_without_preinitialized_list_state():
     payload = json.loads(result["messages"][-1].content)
     assert payload["answer"] == "支持4K。"
     assert payload["verified_citations"][0]["chunk_id"] == "chunk-1"
+    assert payload["grounding"]["citation_validity_rate"] == 1.0
